@@ -1,0 +1,110 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'idea'
+    id 'net.neoforged.moddev' version '2.0.141'
+    id 'org.jetbrains.kotlin.jvm' version '2.2.0'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        name = 'Kotlin for Forge'
+        url = 'https://thedarkcolour.github.io/KotlinForForge/'
+        content { includeGroup "thedarkcolour" }
+    }
+}
+
+
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+kotlin.jvmToolchain(21)
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
+
+neoForge {
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        create("data") {
+            data()
+            programArguments.addAll(
+                    "--mod", "hexcurio",
+                    "--all",
+                    "--output", file("src/generated/resources/").absolutePath,
+                    "--existing", file("src/main/resources/").absolutePath
+            )
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+sourceSets.main {
+    resources.srcDir("src/generated/resources")
+}
+processResources {
+    def ver = version
+    inputs.property "version", ver
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand "version": ver
+    }
+}
+dependencies {
+    implementation 'thedarkcolour:kotlinforforge-neoforge:5.3.0'
+
+
+    implementation fileTree(dir: "${rootProject.rootDir}/libs", include: "*.jar")
+}
+tasks.named('jar') {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/repo"
+        }
+    }
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

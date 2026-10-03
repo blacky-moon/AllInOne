@@ -1,0 +1,41 @@
+{
+  "parent": "oneironaut:enter_noosphere",
+  "criteria": {
+    "garden": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "oneironaut:garden_island"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "oneironaut.advancements.noosphere.find_garden.description"
+    },
+    "frame": "task",
+    "hidden": true,
+    "icon": {
+      "item": "minecraft:campfire"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "oneironaut.advancements.noosphere.find_garden"
+    }
+  },
+  "requirements": [
+    [
+      "garden"
+    ]
+  ]
+}

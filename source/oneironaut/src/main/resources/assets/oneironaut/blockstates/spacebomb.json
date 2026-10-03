@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "energized=false": {
+      "model": "oneironaut:block/spacebomb_off"
+    },
+    "energized=true":{
+      "model": "oneironaut:block/spacebomb_on"
+    }
+  }
+}

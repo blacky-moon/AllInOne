@@ -1,0 +1,57 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mixins]]
+config = "hexical.mixins.json"
+
+[[mixins]]
+config = "hexical.client.mixins.json"
+
+[[mods]]
+modId = "hexical"
+version = "${version}"
+displayName = "Hexical"
+logoFile = "assets/hexical/icon.png"
+credits = "miyucomics"
+authors = "miyucomics | Blacky_moon"
+description = "The largest Hexcasting addon in existence!"
+
+[[dependencies.hexical]]
+modId = "minecraft"
+type = "required"
+
+versionRange = "[1.21.1]"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hexical]]
+modId = "neoforge"
+type = "required"
+
+versionRange = "[21.1.235,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hexical]]
+modId = "curios"
+type = "optional"
+versionRange = "[9.5.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.hexical]]
+modId = "hexcasting"
+type = "required"
+
+versionRange = "[0.12.0-devel]"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hexical]]
+modId = "emi"
+type = "optional"
+
+versionRange = "*"
+ordering = "NONE"
+side = "CLIENT"

@@ -1,0 +1,35 @@
+{
+  "item.hexverse.hex_chestplate": "Аметистовый нагрудник",
+  "item.hexverse.hex_leggings": "Аметистовые поножи",
+  "item.hexverse.hex_boots": "Аметистовые ботинки",
+  "item.hexverse.hex_pickaxe": "Аметистовая кирка",
+  "itemGroup.hexverse": "Hex Verse",
+
+  "item.hexverse.hex_sword": "Аметистовый Меч",
+  "item.hexverse.hex_snowball_dust": "Аметисто-пыльной Снежок",
+  "item.hexverse.hex_snowball_shard": "Аметисто-осколочный Снежок",
+  "item.hexverse.hex_snowball_crystal": "Аметисто-кристаллический Снежок",
+  "item.hexverse.hex_snowball_quenched": "Аметисто-погашенный Снежок",
+  "hexcasting.action.hexverse:imbue_equipment": "Насыщение Экипировки",
+
+  "hexverse.page.amethyst_tools.title": "Аметистовое Снаряжение",
+  "hexverse.page.amethyst_tools.tools.0": "После придачи $(l:items/amethyst)$(item)Charged Amethyst$() форму инструментов, я смог создать оружия, удерживающие в себе _Hex.",
+  "hexverse.page.amethyst_tools.tools.1": "Пускай их стабильность не вызывает особой надежды и не являются полноценными $(l:items/focus)$(item)Устройствами записи(), тем не менее их свойства могут оказаться полезными...",
+  "hexverse.page.amethyst_tools.weapons.pickaxe": "Каждый раз, когда $(item)Amethyst Pickaxe$() разрушает блок, вызывается связанное в ней заклинание, оставляя в начале его стека позицию сломанного блока и его идентификатор.",
+  "hexverse.page.amethyst_tools.weapons.sword": "При ударе $(item)Amethyst Sword$() взывает к своему связанному _Hex. При ударе по существу, исполняет связанное заклинание и оставляет в начале его стека цель.",
+  "hexverse.page.amethyst_tools.armour.chestplate": "Также $(item)Chestplate$() реагирует на любой полученный мной урон. Количество урона, источник и источник источника остаются в начале стека связанного заклинания.",
+  "hexverse.page.amethyst_tools.armour.leggings": "$(item)Leggings$() активируются только при моей смерти. Пока, я не могу понять откуда он берёт _media, но мне кажется это как то связанно с его рецептом создания.",
+  "hexverse.page.amethyst_tools.armour.boots": "$(item)Boots$() отвечают на падение, вставляя в начало стека связанного заклинания дистанцию падения, при этом активируется оно только при приземлении...",
+
+
+  "hexverse.page.hex_snowballs.title": "Аметистовые снежки",
+  "hexverse.page.hex_snowballs.0": "Даже нечто столь простое, как снежок, может послужить временным сосудом для _media. Вкрапляя фрагменты аметиста в снег я могу создавать снаряды, способные взывать к связанному _Hex при соприкосновении с чем-либо",
+  "hexverse.page.hex_snowballs.dust": "Высечен из $(item)Amethyst Dust$(). Удерживает в себе не больше _media, чем сама пыль, из который был создан.",
+  "hexverse.page.hex_snowballs.shard": "Слеплен из $(item)Amethyst Crystal(). Удерживает в себе столько же _media, сколько хранит один осколок, из которого был высечен.",
+  "hexverse.page.hex_snowballs.crystal": "Собран из $(item)Charged Amethyst$(). Хранит в себе довольно большой запас медиа _media.",
+  "hexverse.page.hex_snowballs.quenched": "Сотворён из $(item)Quenched Amethyst$(). Содержит самое больше количество медиа среди всех снежков, поражает его стабильность, при таком объёме сосуд может треснуть в любой момент...",
+  "hexverse.page.hex_snowballs.media": "Попадание по чему-либо помещает это в начало стека заточённого заклинания. При попадании в блок, отправляет его положение, а в сущность, соответственно, сущность. Подобно другим магическим устройствам не способен использовать _media больше чем в нём хранится",
+    "hexverse.page.hex_snowballs.media2": "Изучив снежки немного глубже, я понял, что они способны не только хранить медиа, но и являются некоторыми побрякушками-исполнителями, имея свою область взаимодействия с миром, около 8 блоков и после броска полную отрешённость от заклинателя, это глубже, чем кажется...",
+    "hexverse.no.spell.stored": "Нет записанного заклинания",
+  "hexverse.page.imbue_equipment.title": "Насыщение снаряжения",
+  "hexverse.page.imbue_equipment.summary.0": "Связывает представленный _Hex с чем-то в моей левой руке. Впредь, предмет получит особые свойства, вызывая запечатанное в него заклинание при разных обстоятельствах. Стоит около $(item)Charged Amethyst$()."}

@@ -1,0 +1,10 @@
+{
+  "type": "hexical:flora",
+  "cost": 6000,
+  "input": {
+    "item": "minecraft:brown_mushroom"
+  },
+  "state": {
+    "Name": "minecraft:brown_mushroom"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "hexical:flora",
+  "cost": 5000,
+  "input": {
+    "item": "minecraft:kelp"
+  },
+  "state": {
+    "Name": "minecraft:kelp",
+    "Properties": {
+      "age": "0"
+    }
+  }
+}

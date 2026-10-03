@@ -1,0 +1,43 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+issueTrackerURL = "https://github.com/blacky-moon/hexcurio/issues"
+
+[[mixins]]
+config = "hexcurio.mixins.json"
+
+[[mods]]
+modId = "hexcurio"
+version = "${version}"
+displayName = "HexCurio"
+logoFile = "icon.png"
+authors = "BlackyMoon"
+description = "This mod adds new curio`s artefacts!"
+
+[[dependencies.hexcurio]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hexcurio]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hexcurio]]
+modId = "curios"
+type = "required"
+versionRange = "[9.5.0,9.5.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hexcurio]]
+modId = "hexcasting"
+type = "required"
+versionRange = "[0.12.0,)"
+ordering = "AFTER"
+side = "BOTH"

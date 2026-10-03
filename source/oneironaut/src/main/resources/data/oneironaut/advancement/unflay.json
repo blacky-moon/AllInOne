@@ -1,0 +1,28 @@
+{
+  "parent": "hexcasting:enlightenment",
+  "criteria": {
+    "grant": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "oneironaut.advancements.unflay.description"
+    },
+    "frame": "task",
+    "hidden": true,
+    "icon": {
+      "item": "minecraft:emerald"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "oneironaut.advancements.unflay"
+    }
+  },
+  "requirements": [
+    [
+      "grant"
+    ]
+  ]
+}

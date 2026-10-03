@@ -1,0 +1,16 @@
+{
+  "type": "hexical:flora",
+  "cost": 50000,
+  "input": {
+    "item": "minecraft:mangrove_propagule"
+  },
+  "state": {
+    "Name": "minecraft:mangrove_propagule",
+    "Properties": {
+      "age": "0",
+      "hanging": "false",
+      "stage": "0",
+      "waterlogged": "false"
+    }
+  }
+}

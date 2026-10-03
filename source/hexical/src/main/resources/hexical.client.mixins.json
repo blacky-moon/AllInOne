@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "package": "miyucomics.hexical.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ClientBookRegistryMixin",
+    "ClientWorldMixin",
+    "DrawContextMixin",
+    "EntityRendererMixin",
+    "GameRendererMixin",
+    "GuiSpellcastingMixin",
+    "InGameHudMixin",
+    "ItemEntityRendererMixin",
+
+    "MouseMixin",
+    "PatchouliTooltipMixin",
+    "ScryingLensOverlaysMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

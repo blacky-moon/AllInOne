@@ -1,0 +1,65 @@
+package gay.`object`.hexdebug.gui.splicing.renderers
+
+import at.petrak.hexcasting.api.casting.iota.IotaType
+import gay.`object`.hexdebug.api.client.splicing.SplicingTableIotaRenderer
+import gay.`object`.hexdebug.api.client.splicing.SplicingTableIotaRendererParser
+import gay.`object`.hexdebug.api.client.splicing.SplicingTableIotaRendererProvider
+import gay.`object`.hexdebug.api.splicing.SplicingTableIotaClientView
+import gay.`object`.hexdebug.gui.splicing.setColor
+import gay.`object`.hexdebug.utils.getAsResourceLocation
+import net.minecraft.client.gui.GuiGraphics
+import net.minecraft.resources.ResourceLocation
+import net.minecraft.util.GsonHelper
+import java.awt.Color
+
+data class TextureRendererProvider(
+    val texture: ResourceLocation,
+    val xOffset: Int,
+    val yOffset: Int,
+    val uOffset: Int,
+    val vOffset: Int,
+    val width: Int,
+    val height: Int,
+    val textureWidth: Int,
+    val textureHeight: Int,
+    val useIotaColor: Boolean = true,
+) : SplicingTableIotaRendererProvider {
+    override fun createRenderer(
+        type: IotaType<*>,
+        iota: SplicingTableIotaClientView,
+        x: Int,
+        y: Int,
+    ): SplicingTableIotaRenderer {
+        return TextureRenderer(type, iota, x, y)
+    }
+
+    inner class TextureRenderer(
+        type: IotaType<*>,
+        iota: SplicingTableIotaClientView,
+        x: Int,
+        y: Int,
+    ) : SplicingTableIotaRenderer(type, iota, x, y) {
+        override fun render(guiGraphics: GuiGraphics, mouseX: Int, mouseY: Int, partialTick: Float) {
+            if (useIotaColor) guiGraphics.setColor(Color(type.color(), true))
+            guiGraphics.blit(texture, x + xOffset, y + yOffset, uOffset.toFloat(), vOffset.toFloat(), width, height, textureWidth, textureHeight)
+            if (useIotaColor) guiGraphics.setColor(1f, 1f, 1f, 1f)
+        }
+    }
+
+    companion object {
+        val PARSER = SplicingTableIotaRendererParser<TextureRendererProvider> { _, json, parent ->
+            TextureRendererProvider(
+                texture = json.getAsResourceLocation("texture", parent?.texture),
+                xOffset = GsonHelper.getAsInt(json, "x_offset", parent?.xOffset ?: 0),
+                yOffset = GsonHelper.getAsInt(json, "y_offset", parent?.yOffset ?: 0),
+                uOffset = GsonHelper.getAsInt(json, "u_offset", parent?.uOffset ?: 0),
+                vOffset = GsonHelper.getAsInt(json, "v_offset", parent?.vOffset ?: 0),
+                width = GsonHelper.getAsInt(json, "width", parent?.width ?: 18),
+                height = GsonHelper.getAsInt(json, "height", parent?.height ?: 21),
+                textureWidth = GsonHelper.getAsInt(json, "texture_width", parent?.textureWidth ?: 18),
+                textureHeight = GsonHelper.getAsInt(json, "texture_height", parent?.textureHeight ?: 21),
+                useIotaColor = GsonHelper.getAsBoolean(json, "use_iota_color", true),
+            )
+        }
+    }
+}

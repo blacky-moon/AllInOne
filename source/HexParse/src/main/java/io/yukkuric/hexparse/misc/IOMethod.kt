@@ -1,0 +1,79 @@
+package io.yukkuric.hexparse.misc
+
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.item.IotaHolderItem
+import at.petrak.hexcasting.common.items.storage.ItemFocus
+import at.petrak.hexcasting.common.items.storage.ItemSpellbook
+import at.petrak.hexcasting.common.items.storage.ItemThoughtKnot
+import at.petrak.hexcasting.common.lib.HexDataComponents
+import at.petrak.hexcasting.common.lib.HexItems
+import io.yukkuric.hexparse.HexParse
+import net.minecraft.core.component.DataComponents
+import net.minecraft.network.chat.Component
+import net.minecraft.server.level.ServerLevel
+import net.minecraft.world.item.ItemStack
+
+class IOMethod(
+    cls: Class<*>, private val writer: ((ItemStack, Iota) -> Unit)? = null,
+    private val reader: ((ItemStack) -> Iota?)? = null, val priority: Int = 0,
+    private val validator: ((ItemStack, Boolean) -> Boolean)? = null
+) {
+    private lateinit var current: ItemStack
+
+    fun write(nbt: Iota) {
+        if (writer == null) {
+            // simple writer for IotaHolderItem
+            current.set(HexDataComponents.IOTA_HOLDER_IOTA, nbt)
+            return
+        }
+        writer!!(current, nbt)
+    }
+
+    fun read(): Iota? {
+        if (reader == null) return (current.item as IotaHolderItem).readIota(current)
+        return reader!!(current)
+    }
+
+    fun bind(stack: ItemStack) {
+        current = stack
+    }
+
+    fun rename(newName: String) {
+        current.set(DataComponents.CUSTOM_NAME, Component.literal(newName))
+    }
+
+    fun readIota(world: ServerLevel?): Iota? {
+        val tag = read() ?: return null
+        return tag
+    }
+
+    init {
+        val old = ITEM_IO_TYPES.put(cls, this)
+        if (old == null) HexParse.LOGGER.info("IOMethod registered for class {} {}", cls.javaClass, cls)
+        else HexParse.LOGGER.error("IOMethod registered for class {} but duplicated", cls)
+    }
+
+    companion object {
+        private val ITEM_IO_TYPES: MutableMap<Class<*>, IOMethod> = HashMap()
+
+        @JvmStatic
+        fun get(stack: ItemStack?, isWrite: Boolean): IOMethod? {
+            if (stack == null) return null
+            val ret = ITEM_IO_TYPES[stack.item.javaClass]
+            if (ret?.validator != null && !ret.validator!!(stack, isWrite)) return null
+            ret?.bind(stack)
+            return ret
+        }
+
+        init {
+            IOMethod(ItemFocus::class.java)
+            IOMethod(ItemThoughtKnot::class.java)
+            IOMethod(
+                ItemSpellbook::class.java,
+                writer = { stack: ItemStack, nbt: Iota ->
+                    HexItems.SPELLBOOK.writeDatum(stack, nbt)
+                }
+            )
+        }
+    }
+}

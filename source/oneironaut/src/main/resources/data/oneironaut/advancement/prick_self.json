@@ -1,0 +1,28 @@
+{
+  "parent": "hexcasting:root",
+  "criteria": {
+    "grant": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "oneironaut.advancements.ouchie.description"
+    },
+    "frame": "task",
+    "hidden": true,
+    "icon": {
+      "item": "oneironaut:rending_thorns"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "oneironaut.advancements.ouchie"
+    }
+  },
+  "requirements": [
+    [
+      "grant"
+    ]
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "oneironaut:item/insulated_trinket_filled"
+  }
+}

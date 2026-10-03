@@ -1,0 +1,13 @@
+{
+  "type": "hexical:flora",
+  "cost": 5000,
+  "input": {
+    "item": "minecraft:sunflower"
+  },
+  "state": {
+    "Name": "minecraft:sunflower",
+    "Properties": {
+      "half": "lower"
+    }
+  }
+}

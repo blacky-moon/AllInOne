@@ -1,0 +1,64 @@
+package dev.kineticcat.complexhex.entity;
+
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.function.BiConsumer;
+
+import static dev.kineticcat.complexhex.Complexhex.id;
+
+public class ComplexHexEntities {
+
+    public static void init() {
+        for (var e : ENTITIES.entrySet()) {
+            Registry.register(BuiltInRegistries.ENTITY_TYPE, e.getKey(), e.getValue());
+        }
+    }
+
+
+    public static void initSerializers() {
+        Registry.register(
+                NeoForgeRegistries.ENTITY_DATA_SERIALIZERS,
+                id("pigment"),
+                ParametricLineEntity.PIGMENT_SERIALIZER
+        );
+    }
+
+    public static void registerEntities (BiConsumer<EntityType<?>, ResourceLocation> r) {
+        for (var e : ENTITIES.entrySet()) {
+            r.accept(e.getValue(), e.getKey());
+        }
+    }
+    private static final Map<ResourceLocation, EntityType<?>> ENTITIES = new LinkedHashMap<>();
+    public static final EntityType<ParametricLineEntity> PARAMETRIC_LINE = register(
+            "parametric/line",
+            EntityType.Builder.of(ParametricLineEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f)
+                    .clientTrackingRange(32)
+                    .updateInterval(1)
+                    .build(id("parametric/line").toString())
+    );
+    public static final EntityType<ParametricSurfaceEntity> PARAMETRIC_SURFACE = register(
+            "parametric/surface",
+            EntityType.Builder.of(ParametricSurfaceEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f)
+                    .clientTrackingRange(32)
+                    .updateInterval(1)
+                    .build(id("parametric/surface").toString())
+    );
+
+    private static <T extends Entity> EntityType<T> register (String id, EntityType<T> type) {
+        var old = ENTITIES.put(id(id), type);
+        if (old != null) {
+            throw new IllegalArgumentException("Typo? Duplicate id " + id);
+        }
+        return type;
+    }
+}

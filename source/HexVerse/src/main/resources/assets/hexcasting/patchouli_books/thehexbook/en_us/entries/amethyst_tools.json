@@ -1,0 +1,43 @@
+{
+  "name": "hexverse.page.amethyst_tools.title",
+  "icon": "hexverse:hex_pickaxe",
+  "category": "hexcasting:items",
+  "sortnum": 1,
+  "advancement": "hexcasting:root",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexverse.page.amethyst_tools.tools.0"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "hexverse.page.amethyst_tools.tools.1"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hexverse:hex_pickaxe",
+      "text": "hexverse.page.amethyst_tools.weapons.pickaxe"
+    },
+
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hexverse:hex_sword",
+      "text": "hexverse.page.amethyst_tools.weapons.sword"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hexverse:hex_chestplate",
+      "text": "hexverse.page.amethyst_tools.armour.chestplate"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hexverse:hex_leggings",
+      "text": "hexverse.page.amethyst_tools.armour.leggings"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hexverse:hex_boots",
+      "text": "hexverse.page.amethyst_tools.armour.boots"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "type": "oneironaut:block_vein",
+  "config": {
+    "mainblockid": "oneironaut:pseudoamethyst_block",
+    "carvedblockid": "oneironaut:noosphere_basalt"
+  }
+}

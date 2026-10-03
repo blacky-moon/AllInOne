@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "diy_conjuring": {
+      "trigger": "hexical:diy_conjuring"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.hexical.diy_conjuring.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:scaffolding"
+    },
+    "title": {
+      "translate": "advancements.hexical.diy_conjuring.title"
+    }
+  },
+  "requirements": [
+    [
+      "diy_conjuring"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

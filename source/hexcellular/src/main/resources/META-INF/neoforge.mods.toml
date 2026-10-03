@@ -1,0 +1,32 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "hexcellular"
+version = "${version}"
+displayName = "Hexcellular"
+logoFile = "assets/hexcellular/icon.png"
+authors = "miyucomics"
+description = "Property/state storage addon for Hex Casting."
+
+[[dependencies.hexcellular]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.21.1]"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hexcellular]]
+modId = "neoforge"
+mandatory = true
+versionRange = "[21.1.200,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hexcellular]]
+modId = "hexcasting"
+mandatory = true
+versionRange = "[0.12.0-devel]"
+ordering = "NONE"
+side = "BOTH"

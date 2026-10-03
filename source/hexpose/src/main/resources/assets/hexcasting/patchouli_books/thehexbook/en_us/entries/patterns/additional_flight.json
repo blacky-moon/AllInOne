@@ -1,0 +1,21 @@
+{
+  "name": "hexpose.page.additional_flight.title",
+  "icon": "minecraft:elytra",
+  "category": "hexcasting:patterns",
+  "advancement": "hexcasting:root",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexpose.page.additional_flight.0"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexpose:get_flight_origin",
+      "anchor": "hexpose:get_flight_origin",
+      "input": "",
+      "output": "vector | null",
+      "text": "hexpose.page.get_flight_origin.summary"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'idea'
+    id 'net.neoforged.moddev' version '2.0.141'
+    id 'org.jetbrains.kotlin.jvm' version '2.2.0'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        name = 'Kotlin for Forge'
+        url = 'https://thedarkcolour.github.io/KotlinForForge/'
+        content { includeGroup "thedarkcolour" }
+    }
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+kotlin.jvmToolchain(21)
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
+
+neoForge {
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+processResources {
+    def ver = version
+    inputs.property "version", ver
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand "version": ver
+    }
+}
+
+dependencies {
+    implementation 'thedarkcolour:kotlinforforge-neoforge:5.3.0'
+
+    // положи сюда свой hexcasting neoforge jar (тот же, что и в остальных проектах)
+    implementation files("${rootProject.rootDir}/libs/hexcasting-neoforge-1.21.1-0.12.0-devel.jar")
+}
+
+tasks.named('jar') {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/repo"
+        }
+    }
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

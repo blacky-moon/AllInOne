@@ -1,0 +1,18 @@
+{
+  "name": "oneironaut.entry.noosphere_main",
+  "category": "hexcasting:greatwork",
+  "icon": "oneironaut:noosphere_basalt",
+  "sortnum": 0,
+  "advancement": "oneironaut:enter_noosphere",
+  "entry_color": "54398a",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.noosphere_main.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.noosphere_main.2"
+    }
+  ]
+}

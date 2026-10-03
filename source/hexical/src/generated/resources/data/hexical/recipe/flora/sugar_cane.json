@@ -1,0 +1,13 @@
+{
+  "type": "hexical:flora",
+  "cost": 50000,
+  "input": {
+    "item": "minecraft:sugar_cane"
+  },
+  "state": {
+    "Name": "minecraft:sugar_cane",
+    "Properties": {
+      "age": "0"
+    }
+  }
+}

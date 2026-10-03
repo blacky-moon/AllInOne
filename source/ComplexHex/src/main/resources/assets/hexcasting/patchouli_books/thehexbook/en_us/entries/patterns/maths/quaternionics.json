@@ -1,0 +1,162 @@
+{
+  "name": "complexhex.entry.quaternionics",
+  "category": "hexcasting:patterns/maths",
+  "icon": "minecraft:heart_of_the_sea",
+  "sortnum": 10,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:qmake",
+      "anchor": "complexhex:qmake",
+      "input": "num, vec",
+      "output": "quaternion",
+      "text": "complexhex.page.quaternionics.qmake"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:qunmake",
+      "anchor": "complexhex:qunmake",
+      "input": "quaternion",
+      "output": "num, vec",
+      "text": "complexhex.page.quaternionics.qunmake"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:const/quaternion/1",
+      "anchor": "complexhex:const/quaternion/1",
+      "input": "",
+      "output": "quaternion",
+      "text": "complexhex.page.quaternionics.const.1"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:const/quaternion/i",
+      "anchor": "complexhex:const/quaternion/i",
+      "input": "",
+      "output": "quaternion",
+      "text": "complexhex.page.quaternionics.const.i"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:const/quaternion/j",
+      "anchor": "complexhex:const/quaternion/j",
+      "input": "",
+      "output": "quaternion",
+      "text": "complexhex.page.quaternionics.const.j"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:const/quaternion/k",
+      "anchor": "complexhex:const/quaternion/k",
+      "input": "",
+      "output": "quaternion",
+      "text": "complexhex.page.quaternionics.const.k"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexcasting:add",
+      "anchor": "hexcasting:add",
+      "input": "qtrn, qtrn",
+      "output": "quaternion",
+      "text": "complexhex.page.quaternionics.add"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexcasting:sub",
+      "anchor": "hexcasting:sub",
+      "input": "qrtn, qtrn",
+      "output": "quaternion",
+      "text": "complexhex.page.quaternionics.sub"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexcasting:mul",
+      "anchor": "hexcasting:mul",
+      "input": "quaternion, num",
+      "output": "quaternion",
+      "text": "complexhex.page.quaternionics.mul"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexcasting:div",
+      "anchor": "hexcasting:div",
+      "input": "quaternion, num",
+      "output": "quaternion",
+      "text": "complexhex.page.quaternionics.div"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexcasting:abs",
+      "anchor": "hexcasting:abs",
+      "input": "quaternion",
+      "output": "num",
+      "text": "complexhex.page.quaternionics.abs"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:qw",
+      "anchor": "complexhex:qw",
+      "input": "quaternion",
+      "output": "num",
+      "text": "complexhex.page.quaternionics.qw"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:qx",
+      "anchor": "complexhex:qx",
+      "input": "quaternion",
+      "output": "num",
+      "text": "complexhex.page.quaternionics.qx"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:qy",
+      "anchor": "complexhex:qy",
+      "input": "quaternion",
+      "output": "num",
+      "text": "complexhex.page.quaternionics.qy"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:qz",
+      "anchor": "complexhex:qz",
+      "input": "quaternion",
+      "output": "num",
+      "text": "complexhex.page.quaternionics.qz"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:qinvert",
+      "anchor": "complexhex:qinvert",
+      "input": "quaternion",
+      "output": "quat",
+      "text": "complexhex.page.quaternionics.qinvert"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:quattomat",
+      "anchor": "complexhex:quattomat",
+      "input": "quaternion",
+      "output": "matrix",
+      "text": "complexhex.page.quaternionics.quattomat"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:mattoquat",
+      "anchor": "complexhex:mattoquat",
+      "input": "matrix",
+      "output": "quaternion",
+      "text": "complexhex.page.quaternionics.mattoquat"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:axisangle",
+      "anchor": "complexhex:axisangle",
+      "input": "vec, num",
+      "output": "quaternion",
+      "text": "complexhex.page.quaternionics.axisangle"
+    }
+  ]
+}

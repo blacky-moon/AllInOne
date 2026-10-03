@@ -1,0 +1,13 @@
+{
+  "type": "hexical:flora",
+  "cost": 50000,
+  "input": {
+    "item": "minecraft:dark_oak_sapling"
+  },
+  "state": {
+    "Name": "minecraft:dark_oak_sapling",
+    "Properties": {
+      "stage": "0"
+    }
+  }
+}

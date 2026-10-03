@@ -1,0 +1,10 @@
+{
+  "type": "oneironaut:block_blob",
+  "config": {
+    "mainblockid": "oneironaut:media_ice",
+    "size": 8,
+    "squish": 1,
+    "falloff": 5,
+    "immersion": 8
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "parent": "item/amethyst_bud",
+  "textures": {
+    "layer0": "oneironaut:block/pseudoamethyst_bud_large"
+  },
+  "display": {
+    "fixed": {
+      "translation": [ 0, 4, 0 ]
+    }
+  }
+}

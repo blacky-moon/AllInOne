@@ -1,0 +1,141 @@
+{
+	"name": "overevaluate.page.metas.title",
+	"icon": "minecraft:writable_book",
+	"category": "hexcasting:patterns",
+	"advancement": "hexcasting:root",
+	"sortnum": 12,
+	"pages": [
+		{
+			"type": "hexcasting:pattern",
+			"op_id": "overevaluate:tutu",
+			"anchor": "overevaluate:tutu",
+			"input": "",
+			"output": "",
+			"text": "overevaluate.page.tutu.summary"
+		},
+		{
+			"type": "patchouli:text",
+			"text": "overevaluate.page.tutu.description"
+		},
+		{
+			"type": "hexcasting:pattern",
+			"op_id": "overevaluate:janus",
+			"anchor": "overevaluate:janus",
+			"input": "",
+			"output": "",
+			"text": "overevaluate.page.janus.summary"
+		},
+		{
+			"type": "patchouli:text",
+			"text": "overevaluate.page.janus.description"
+		},
+		{
+			"type": "hexcasting:manual_pattern",
+			"op_id": "overevaluate:pluto",
+			"anchor": "overevaluate:pluto",
+			"input": "",
+			"output": "",
+			"text": "overevaluate.page.pluto.summary",
+			"patterns": [
+				{
+					"startdir": "SOUTH_WEST",
+					"signature": "aqdeea"
+				},
+				{
+					"startdir": "SOUTH_WEST",
+					"signature": "aqdeeae",
+					"q": 1,
+					"r": 2
+				},
+				{
+					"startdir": "SOUTH_WEST",
+					"signature": "aqdeeaeq",
+					"q": 2,
+					"r": 4
+				}
+			]
+		},
+		{
+			"type": "patchouli:text",
+			"text": "overevaluate.page.pluto.description"
+		},
+		{
+			"type": "hexcasting:manual_pattern",
+			"op_id": "overevaluate:nephthys",
+			"anchor": "overevaluate:nephthys",
+			"input": "pattern/list",
+			"output": "varies",
+			"text": "overevaluate.page.nephthys.summary",
+			"patterns": [
+				{
+					"startdir": "SOUTH_EAST",
+					"signature": "deaqqd"
+				},
+				{
+					"startdir": "SOUTH_EAST",
+					"signature": "deaqqdq",
+					"q": 1,
+					"r": 2
+				},
+				{
+					"startdir": "SOUTH_EAST",
+					"signature": "deaqqdqe",
+					"q": 2,
+					"r": 4
+				}
+			]
+		},
+		{
+			"type": "patchouli:text",
+			"text": "overevaluate.page.nephthys.description"
+		},
+		{
+			"type": "hexcasting:pattern",
+			"op_id": "overevaluate:atalanta",
+			"anchor": "overevaluate:atalanta",
+			"input": "boolean",
+			"output": "",
+			"text": "overevaluate.page.atalanta.summary"
+		},
+		{
+			"type": "patchouli:text",
+			"text": "overevaluate.page.atalanta.description"
+		},
+		{
+			"type": "hexcasting:pattern",
+			"op_id": "overevaluate:castor",
+			"anchor": "overevaluate:castor",
+			"input": "any",
+			"output": "",
+			"text": "overevaluate.page.castor.summary"
+		},
+		{
+			"type": "patchouli:text",
+			"text": "overevaluate.page.castor.description"
+		},
+		{
+			"type": "hexcasting:pattern",
+			"op_id": "overevaluate:pollux",
+			"anchor": "overevaluate:pollux",
+			"input": "any",
+			"output": "",
+			"text": "overevaluate.page.pollux.summary"
+		},
+		{
+			"type": "patchouli:text",
+			"text": "overevaluate.page.pollux.description"
+		},
+		{
+			"type": "hexcasting:pattern",
+			"op_id": "overevaluate:sisyphus",
+			"anchor": "overevaluate:sisyphus",
+			"input": "list",
+			"output": "",
+			"text": "overevaluate.page.sisyphus.summary"
+		},
+		{
+			"type": "patchouli:text",
+			"text": "overevaluate.page.sisyphus.description"
+		}
+	]
+}

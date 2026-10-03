@@ -1,0 +1,36 @@
+{
+  "name": "oneironaut.entry.wisp_lanterns",
+  "category": "hexcasting:items",
+  "icon": "oneironaut:wisp_lantern",
+  "sortnum": 4,
+  "advancement": "oneironaut:enter_noosphere",
+  "pages": [
+    "oneironaut.page.wisp_lanterns.1",
+    {
+      "type": "patchouli:crafting",
+      "recipe": "oneironaut:wisp_lantern",
+      "recipe2": "oneironaut:wisp_lantern_tinted"
+    },
+    "oneironaut.page.wisp_lanterns.2",
+    {
+      "type": "patchouli:crafting",
+      "recipe": "oneironaut:wisp_battery",
+      "text": "oneironaut.page.wisp_lanterns.3"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "oneironaut:decorative_wisp_battery",
+      "text": "oneironaut.page.wisp_lanterns.4"
+    },
+    {
+      "type": "patchouli:empty"
+    },
+    "oneironaut.page.wisp_lanterns.5",
+    {
+      "type": "patchouli:crafting",
+      "recipe": "oneironaut:wisp_capture_device",
+      "text": "oneironaut.page.wisp_lanterns.6"
+    },
+    "oneironaut.page.wisp_lanterns.7"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "item.hexverse.hex_chestplate": "Amethyst Chestplate",
+  "item.hexverse.hex_leggings": "Amethyst Leggings",
+  "item.hexverse.hex_boots": "Amethyst Boots",
+  "item.hexverse.hex_pickaxe": "Amethyst Pickaxe",
+  "itemGroup.hexverse": "Hex Verse",
+  "item.hexverse.hex_sword": "Amethyst Sword",
+  "item.hexverse.hex_snowball_dust": "Amethyst-Dust Snowball",
+  "item.hexverse.hex_snowball_shard": "Amethyst-Shard Snowball",
+  "item.hexverse.hex_snowball_crystal": "Amethyst-Crystal Snowball",
+  "item.hexverse.hex_snowball_quenched": "Amethyst-Quenched Snowball",
+  "hexcasting.action.hexverse:imbue_equipment": "Imbue Equipment",
+
+  "hexverse.page.amethyst_tools.title": "Amethyst Equipment",
+  "hexverse.page.amethyst_tools.tools.0": "By shaping $(l:items/amethyst)$(item)Charged Amethyst$() into tools, I can create implements capable of carrying a _Hex.",
+  "hexverse.page.amethyst_tools.tools.1": "После придачи $(l:items/amethyst)$(item)Charged Amethyst$() форму инструментов, я смог создать оружия, удерживающие в себе _Hex.",
+
+  "hexverse.page.amethyst_tools.weapons.pickaxe": "Whenever an $(item)Amethyst Pickaxe$() breaks a block, it invokes the bound spell, leaving both the block's position and identifier upon the stack.",
+  "hexverse.page.amethyst_tools.weapons.sword": "An $(item)Amethyst Sword$() casts its bound _Hex whenever it strikes a creature, placing the unfortunate target upon the stack before the spell begins.",
+  "hexverse.page.amethyst_tools.armour.chestplate": "The $(item)Chestplate$() reacts whenever I suffer harm. The direct source, indirect source, and the amount of damage are all supplied to the stack.",
+  "hexverse.page.amethyst_tools.armour.leggings": "The $(item)Leggings$() awaken only upon my death. Since I cannot serve as a conduit while dead, the spell consumes its own internal _media instead.",
+  "hexverse.page.amethyst_tools.armour.boots": "The $(item)Boots$() respond to a sufficiently long fall, pushing the exact distance travelled onto the stack before invoking their _Hex.",
+
+
+  "hexverse.page.hex_snowballs.title": "Amethyst Snowballs",
+  "hexverse.page.hex_snowballs.0": "Even something as mundane as a snowball can serve as a temporary vessel for _media. By embedding fragments of amethyst within the ice, I can produce projectiles capable of invoking a bound _Hex upon impact.",
+  "hexverse.page.hex_snowballs.dust": "Fashioned from $(item)Amethyst Dust$(). Holds no more _media than the dust from which it was made.",
+  "hexverse.page.hex_snowballs.shard": "Fashioned from $(item)Charged Amethyst$(). Carries the same reserve of _media as a charged shard.",
+  "hexverse.page.hex_snowballs.crystal": "Fashioned from an $(item)Amethyst Crystal$(). Holds a correspondingly greater quantity of _media.",
+  "hexverse.page.hex_snowballs.quenched": "Fashioned from $(item)Quenched Amethyst$(). Stable, though no less potent.",
+  "hexverse.page.hex_snowballs.media": "Striking an entity places it upon the stack. Striking a block instead leaves both its position and identifier. Like other casting devices, the snowball draws upon its own reservoir of _media.",
+  "hexverse.page.hex_snowballs.media2": "After studying snowballs a bit deeper, I realized that they are capable of more than just storing media. They act as automated baubles, possessing their own interaction radius of about 8 blocks, and once thrown, they become completely detached from the caster. It is deeper than it seems...",
+
+  "hexverse.page.imbue_equipment.title": "Imbue Equipment",
+
+  "hexverse.no.spell.stored": "No Pattern Stored",
+  "hexverse.page.imbue_equipment.summary.0": "Binds the supplied _Hex into the $(item)Amethyst Equipment$() held in my other hand. The item thereafter invokes the stored spell whenever its trigger occurs. Costs five $(item)Charged Amethyst$()."}

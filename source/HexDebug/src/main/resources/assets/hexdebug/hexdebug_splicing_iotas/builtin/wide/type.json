@@ -1,0 +1,5 @@
+{
+  "parent": "hexdebug:builtin/wide/base",
+  "u_offset": 400,
+  "v_offset": 90
+}

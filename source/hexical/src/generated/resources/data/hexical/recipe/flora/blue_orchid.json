@@ -1,0 +1,10 @@
+{
+  "type": "hexical:flora",
+  "cost": 5000,
+  "input": {
+    "item": "minecraft:blue_orchid"
+  },
+  "state": {
+    "Name": "minecraft:blue_orchid"
+  }
+}

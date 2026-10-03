@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": {
+      "model": "hexical:block/media_jar",
+      "render_type": "minecraft:cutout"
+    }
+  }
+}

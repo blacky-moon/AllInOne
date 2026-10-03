@@ -1,0 +1,21 @@
+{
+  "name": "oneironaut.entry.slipway_hint",
+  "category": "hexcasting:basics",
+  "icon": "minecraft:iron_door",
+  "sortnum": 6,
+  "advancement": "hexcasting:enlightenment",
+  "entry_color": "54398a",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.slipway_hint.1"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "oneironaut:textures/book/slipway_hint_image.png"
+      ],
+      "text": "oneironaut.page.slipway_hint.2"
+    }
+  ]
+}

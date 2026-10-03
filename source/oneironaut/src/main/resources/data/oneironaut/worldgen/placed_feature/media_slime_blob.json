@@ -1,0 +1,9 @@
+{
+  "feature": "oneironaut:media_slime_blob",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 250
+    }
+  ]
+}

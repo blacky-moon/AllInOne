@@ -1,0 +1,26 @@
+{
+  "parent": "hexical:acquire_hand_lamp",
+  "criteria": {
+    "educate_lamp": {
+      "trigger": "hexical:educate_genie"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.hexical.educate_lamp.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:enchanted_book"
+    },
+    "title": {
+      "translate": "advancements.hexical.educate_lamp.title"
+    }
+  },
+  "requirements": [
+    [
+      "educate_lamp"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

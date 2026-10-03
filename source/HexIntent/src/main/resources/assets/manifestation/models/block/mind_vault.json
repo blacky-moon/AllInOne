@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "manifestation:block/mind_vault/mindvault_front",
+    "down": "manifestation:block/mind_vault/mindvault_bottom",
+    "up": "manifestation:block/mind_vault/mindvault_top",
+    "north": "manifestation:block/mind_vault/mindvault_front",
+    "south": "manifestation:block/mind_vault/mindvault_side",
+    "west": "manifestation:block/mind_vault/mindvault_side",
+    "east": "manifestation:block/mind_vault/mindvault_side"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "hexical:flora",
+  "cost": 5000,
+  "input": {
+    "item": "minecraft:dandelion"
+  },
+  "state": {
+    "Name": "minecraft:dandelion"
+  }
+}

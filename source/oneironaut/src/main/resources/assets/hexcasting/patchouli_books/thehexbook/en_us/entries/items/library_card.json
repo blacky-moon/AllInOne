@@ -1,0 +1,15 @@
+{
+  "name": "item.oneironaut.library_card",
+  "category": "hexcasting:items",
+  "icon": "oneironaut:library_card",
+  "sortnum": 6,
+  "advancement": "hexcasting:enlightenment",
+  "pages": [
+    "oneironaut.page.library_card.1",
+    {
+      "type": "patchouli:crafting",
+      "recipe": "oneironaut:library_card",
+      "text": "oneironaut.page.library_card.2"
+    }
+  ]
+}

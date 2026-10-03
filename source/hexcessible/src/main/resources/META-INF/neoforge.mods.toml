@@ -1,0 +1,35 @@
+modLoader = "kotlinforforge"
+loaderVersion = "[4,)"
+license = "The JSON License"
+issueTrackerURL = "https://g.tizu.dev/hexcessible"
+[[mixins]]
+config = "hexcessible.mixins.json"
+
+[[mods]]
+modId = "hexcessible"
+version = "${version}"
+displayName = "Hexcessible"
+logoFile = "icon.png"
+authors = "Ruby (tizu), ElNico56"
+description = "Hex Casting, with a bit more accessibility sprinkled on top."
+
+[[dependencies.hexcessible]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "BOTH" # Было CLIENT
+
+[[dependencies.hexcessible]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "BOTH" # Было CLIENT
+
+[[dependencies.hexcessible]]
+modId = "hexcasting"
+type = "required"
+versionRange = "[0.12.0,)"
+ordering = "AFTER"
+side = "BOTH"

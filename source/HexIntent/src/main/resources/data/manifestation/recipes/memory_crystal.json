@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "AFA",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "hexcasting:charged_amethyst"
+    },
+    "F": {
+      "item": "hexcasting:focus"
+    }
+  },
+  "result": {
+    "item": "manifestation:memory_crystal",
+    "count": 1
+  }
+}

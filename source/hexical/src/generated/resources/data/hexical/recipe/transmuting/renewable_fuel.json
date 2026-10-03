@@ -1,0 +1,13 @@
+{
+  "type": "hexical:transmuting",
+  "cost": -2500,
+  "input": {
+    "item": "minecraft:coal"
+  },
+  "output": [
+    {
+      "count": 1,
+      "id": "minecraft:charcoal"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "oneironaut:item/library_card",
+    "layer1": "oneironaut:item/library_card_icon"
+  }
+}

@@ -1,0 +1,38 @@
+package com.bluup.manifestation.server.action
+
+import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
+import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
+import at.petrak.hexcasting.api.casting.mishaps.MishapOthersName
+import com.bluup.manifestation.server.data.ServerMemoryStorage
+import com.bluup.manifestation.server.iota.MemoryIota
+import com.bluup.manifestation.server.mishap.MishapRequiresCasterWill
+import net.minecraft.server.level.ServerLevel
+import net.minecraft.server.level.ServerPlayer
+
+object OpStoreMemory : ConstMediaAction {
+    override val argc = 2
+
+    override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
+        val caster = env.castingEntity as? ServerPlayer ?: throw MishapRequiresCasterWill()
+
+        val memoryIota = args.firstOrNull { it is MemoryIota } as? MemoryIota
+            ?: throw MishapInvalidIota.ofType(args[0], 0, "memory")
+        val storedIota = args.firstOrNull { it !is MemoryIota }
+            ?: throw MishapInvalidIota.ofType(args[0], 1, "iota")
+
+        if (args[0] !is MemoryIota && args[1] !is MemoryIota) {
+            throw MishapInvalidIota.ofType(args[0], 0, "memory")
+        }
+
+        val trueName = MishapOthersName.getTrueNameFromDatum(storedIota, caster)
+        if (trueName != null) {
+            throw MishapOthersName(trueName)
+        }
+
+        val world = env.world as? ServerLevel ?: throw MishapRequiresCasterWill()
+        ServerMemoryStorage.get(world.server).store(memoryIota.id, storedIota)
+        return listOf()
+    }
+}

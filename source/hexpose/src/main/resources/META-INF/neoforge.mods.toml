@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+
+[[mods]]
+modId="hexpose"
+version="${version}"
+displayName="Hexpose"
+authors="miyucomics"
+description="A Hexcasting addon all about getting information about the world!"
+displayURL="https://github.com/miyucomics/hexpose"
+issueTrackerURL="https://github.com/miyucomics/hexpose"
+
+[[dependencies.hexpose]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.65,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.hexpose]]
+modId="hexcasting"
+type="required"
+versionRange="[0.11.1,)"
+ordering="NONE"
+side="BOTH"

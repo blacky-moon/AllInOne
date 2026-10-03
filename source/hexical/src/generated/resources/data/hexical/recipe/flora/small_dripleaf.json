@@ -1,0 +1,15 @@
+{
+  "type": "hexical:flora",
+  "cost": 7000,
+  "input": {
+    "item": "minecraft:small_dripleaf"
+  },
+  "state": {
+    "Name": "minecraft:small_dripleaf",
+    "Properties": {
+      "facing": "north",
+      "half": "lower",
+      "waterlogged": "false"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "hexverse.page.imbue_equipment.title",
+  "icon": "hexverse:hex_sword",
+  "category": "hexcasting:items",
+  "sortnum": 3,
+  "advancement": "hexcasting:root",
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexverse:imbue_equipment",
+      "anchor": "hexverse:imbue_equipment",
+      "input": "[pattern]",
+      "output": "",
+      "text": "hexverse.page.imbue_equipment.summary.0"
+    }
+
+  ]
+}

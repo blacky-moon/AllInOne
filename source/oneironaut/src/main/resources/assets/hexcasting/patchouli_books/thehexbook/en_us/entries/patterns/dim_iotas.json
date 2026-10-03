@@ -1,0 +1,62 @@
+{
+  "name": "oneironaut.entry.dim_iotas",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:end_portal_frame",
+  "sortnum": 3,
+  "advancement": "hexcasting:root",
+  "read_by_default": false,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.dim_iotas.1"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "oneironaut:getdim1",
+      "anchor": "oneironaut:getdim1",
+      "input": "",
+      "output": "Imprint",
+      "text": "oneironaut.page.dim_iotas.2"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "oneironaut:getdim2",
+      "anchor": "oneironaut:getdim2",
+      "input": "",
+      "output": "Imprint | NULL",
+      "text": "oneironaut.page.dim_iotas.3"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "oneironaut:getdim/overworld",
+      "anchor": "oneironaut:getdim/overworld",
+      "input": "",
+      "output": "Imprint",
+      "text": "oneironaut.page.dim_iotas.4"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "oneironaut:getdim/nether",
+      "anchor": "oneironaut:getdim/nether",
+      "input": "",
+      "output": "Imprint",
+      "text": "oneironaut.page.dim_iotas.5"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "oneironaut:getdimheight",
+      "anchor": "oneironaut:getdimheight",
+      "input": "Imprint",
+      "output": "num, num",
+      "text": "oneironaut.page.dim_iotas.6"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "oneironaut:getdimscale",
+      "anchor": "oneironaut:getdimscale",
+      "input": "Imprint",
+      "output": "num",
+      "text": "oneironaut.page.dim_iotas.7"
+    }
+  ]
+}

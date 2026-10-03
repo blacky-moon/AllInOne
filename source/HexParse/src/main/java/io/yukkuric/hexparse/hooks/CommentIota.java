@@ -1,0 +1,51 @@
+package io.yukkuric.hexparse.hooks;
+
+import at.petrak.hexcasting.api.casting.eval.CastResult;
+import at.petrak.hexcasting.api.casting.eval.ResolvedPatternType;
+import at.petrak.hexcasting.api.casting.eval.vm.CastingVM;
+import at.petrak.hexcasting.api.casting.eval.vm.SpellContinuation;
+import at.petrak.hexcasting.api.casting.iota.Iota;
+import at.petrak.hexcasting.common.lib.hex.HexEvalSounds;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
+
+public class CommentIota extends Iota {
+    public String comment;
+    public String getComment() {
+        return comment;
+    }
+
+    public CommentIota(String comment) {
+        super(() -> CommentIotaType.INSTANCE);
+        this.comment = comment;
+    }
+
+    public Tag serialize() {
+        return StringTag.valueOf(comment);
+    }
+
+    public @NotNull CastResult execute(CastingVM vm, ServerLevel world, SpellContinuation continuation) {
+        return new CastResult(this, continuation, null, List.of(), ResolvedPatternType.ESCAPED, HexEvalSounds.NOTHING);
+    }
+    @Override
+    public Component display() {
+        return CommentIotaType.INSTANCE.display(this);
+    }
+    @Override
+    public int hashCode() {
+        return comment.hashCode();
+    }
+
+    public boolean isTruthy() {
+        return false;
+    }
+    protected boolean toleratesOther(Iota iota) {
+        if (iota instanceof CommentIota c) return this.comment.equals(c.comment);
+        return false;
+    }
+}

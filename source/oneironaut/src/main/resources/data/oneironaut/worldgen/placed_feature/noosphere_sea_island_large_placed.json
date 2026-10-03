@@ -1,0 +1,9 @@
+{
+  "feature": "oneironaut:noosphere_sea_island_large",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 142
+    }
+  ]
+}

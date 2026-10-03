@@ -1,0 +1,46 @@
+name: "Bug report"
+description: Make Hexcessible more accessible!
+labels: ['bug']
+body:
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: Bug description
+    validations:
+      required: true
+  - type: checkboxes
+    attributes:
+      label: Would you like to work on this issue?
+      description: If you would like to PR a fix for this issue, please indicate that here.
+      options:
+        - label: I would like to work on this issue.
+          required: false
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Please provide a video or textual reproduction steps to reproduce the bug, as well as a log, if the game crashes.
+      placeholder: Reproduction
+    validations:
+      required: true
+  - type: textarea
+    id: system-info
+    attributes:
+      label: System Info
+      description: Please provide Minecraft, Hex Casting, and Hexcessible versions.
+      render: shell
+      placeholder: "Minecraft: 1.20.1\n..."
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: Select the severity of this issue
+      options:
+        - annoyance
+        - breaking the game
+    validations:
+      required: true

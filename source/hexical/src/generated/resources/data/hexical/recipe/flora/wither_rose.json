@@ -1,0 +1,10 @@
+{
+  "type": "hexical:flora",
+  "cost": 100000,
+  "input": {
+    "item": "minecraft:wither_rose"
+  },
+  "state": {
+    "Name": "minecraft:wither_rose"
+  }
+}

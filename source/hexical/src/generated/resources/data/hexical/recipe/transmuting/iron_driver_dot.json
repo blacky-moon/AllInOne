@@ -1,0 +1,21 @@
+{
+  "type": "hexical:transmuting",
+  "cost": 100000,
+  "input": {
+    "item": "minecraft:iron_ingot"
+  },
+  "output": [
+    {
+      "count": 1,
+      "id": "hexical:iron_driver_dot"
+    },
+    {
+      "count": 1,
+      "id": "hexical:iron_driver_dot"
+    },
+    {
+      "count": 1,
+      "id": "hexical:iron_driver_dot"
+    }
+  ]
+}

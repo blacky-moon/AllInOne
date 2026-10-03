@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "dev.kineticcat.complexhex.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "BITInvokers.BlockDisplayInvoker",
+    "BITInvokers.DisplayInvoker",
+    "BITInvokers.ItemDisplayInvoker",
+    "BITInvokers.TextDisplayInvoker"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

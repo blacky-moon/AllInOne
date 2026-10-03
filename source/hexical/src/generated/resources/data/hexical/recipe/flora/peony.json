@@ -1,0 +1,13 @@
+{
+  "type": "hexical:flora",
+  "cost": 5000,
+  "input": {
+    "item": "minecraft:peony"
+  },
+  "state": {
+    "Name": "minecraft:peony",
+    "Properties": {
+      "half": "lower"
+    }
+  }
+}

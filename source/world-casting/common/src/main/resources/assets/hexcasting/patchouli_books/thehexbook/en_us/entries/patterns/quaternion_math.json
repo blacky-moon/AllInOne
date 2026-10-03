@@ -1,0 +1,66 @@
+{
+  "name": "world_casting.entry.quaternion_math",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:enchanting_table",
+  "sortnum": 4,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:quaternion.identity",
+      "anchor": "world_casting:quaternion.identity",
+      "input": "",
+      "output": "qtrn",
+      "text": "world_casting.page.world_casting.quaternion.identity"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:quaternion.orientation",
+      "anchor": "world_casting:quaternion.orientation",
+      "input": "entity|fragment",
+      "output": "qtrn",
+      "text": "world_casting.page.world_casting.quaternion.orientation"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:quaternion.conjugate",
+      "anchor": "world_casting:quaternion.conjugate",
+      "input": "qrtn",
+      "output": "qtrn",
+      "text": "world_casting.page.world_casting.quaternion.conjugate"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexcasting:mul",
+      "anchor": "hexcasting:mul",
+      "input": "qtrn | vec, qtrn",
+      "output": "qtrn | vec",
+      "text": "world_casting.page.world_casting.quaternion.mul"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:quaternion.construct",
+      "anchor": "world_casting:quaternion.construct",
+      "input": "num, num, num, num",
+      "output": "qtrn",
+      "text": "world_casting.page.world_casting.quaternion.construct"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:quaternion.deconstruct",
+      "anchor": "world_casting:quaternion.deconstruct",
+      "input": "qtrn",
+      "output": "num, num, num, num",
+      "text": "world_casting.page.world_casting.quaternion.deconstruct"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:quaternion.axis_angle",
+      "anchor": "world_casting:quaternion.axis_angle",
+      "input": "vec, num",
+      "output": "qtrn",
+      "text": "world_casting.page.world_casting.quaternion.axis_angle"
+    }
+  ]
+}

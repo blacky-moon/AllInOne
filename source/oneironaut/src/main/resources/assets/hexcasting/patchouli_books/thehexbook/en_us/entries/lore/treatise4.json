@@ -1,0 +1,11 @@
+{
+  "name": "oneironaut.advancements.lore.treatise4",
+  "icon": "oneironaut:memory_fragment",
+  "category": "hexcasting:lore",
+  "advancement": "oneironaut:lore/treatise4",
+  "sortnum": 8,
+  "pages": [
+    "oneironaut.page.lore.treatise4.1",
+    "oneironaut.page.lore.treatise4.2"
+  ]
+}

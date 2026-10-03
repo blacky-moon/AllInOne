@@ -1,0 +1,13 @@
+{
+  "type": "hexical:flora",
+  "cost": 5000,
+  "input": {
+    "item": "minecraft:rose_bush"
+  },
+  "state": {
+    "Name": "minecraft:rose_bush",
+    "Properties": {
+      "half": "lower"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+    {
+      "parent": "block/cube_all",
+      "textures": {
+        "all": "oneironaut:block/noosphere_basalt"
+      }
+    }
+

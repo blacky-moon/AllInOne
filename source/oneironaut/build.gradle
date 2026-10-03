@@ -1,0 +1,117 @@
+plugins {
+    id 'java-library'
+    id 'eclipse'
+    id 'idea'
+    id 'net.neoforged.moddev' version '2.0.141'
+    id 'org.jetbrains.kotlin.jvm' version '2.2.0'
+    // 1. Добавлен плагин OpenRewrite
+    id 'org.openrewrite.rewrite' version '6.16.4'
+}
+group = mod_group_id
+version = mod_version
+
+base {
+    archivesName = mod_id
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
+// 2. Добавлен блок конфигурации активного рецепта
+rewrite {
+    activeRecipe('net.neoforged.forge2neoforge')
+}
+
+neoForge {
+    version = neoforge_version
+
+    parchment {
+        mappingsVersion = mapping_version
+        minecraftVersion = minecraft_version
+    }
+
+    accessTransformers {
+        file('src/main/resources/META-INF/accesstransformer.cfg')
+    }
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            jvmArguments.addAll("-Xms6G", "-Xmx8G")
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+
+        data {
+            data()
+            programArguments.addAll '--mod', mod_id, '--all', '--output', file('src/generated/resources/').absolutePath, '--existing', file('src/main/resources/').absolutePath
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+sourceSets.main.kotlin.srcDirs += 'src/main/java'
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+repositories {
+    mavenCentral()
+    maven { url = "https://maven.blamejared.com/" }
+    maven { url = "https://maven.parchmentmc.org" }
+    maven {
+        name = 'Kotlin for Forge'
+        url = 'https://thedarkcolour.github.io/KotlinForForge/'
+    }
+    maven { url "https://maven.shedaniel.me/" }
+    maven { url "https://cursemaven.com" }
+}
+
+dependencies {
+    compileOnly "io.github.llamalad7:mixinextras-common:0.4.1"
+
+    implementation "thedarkcolour:kotlinforforge-neoforge:5.3.0"
+
+    implementation fileTree(dir: "${rootProject.rootDir}/libs", include: "*.jar")
+
+
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    var replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neoforge_version       : neoforge_version,
+            neoforge_version_range : neoforge_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description
+    ]
+
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/neoforge.mods.toml', 'pack.mcmeta']) {
+        expand replaceProperties
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+kotlin {
+    jvmToolchain(21)
+}

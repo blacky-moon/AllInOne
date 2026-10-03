@@ -1,0 +1,54 @@
+{
+  "variants": {
+    "powered=false,facing=down": {
+      "model": "oneironaut:block/hover_elevator_unpowered",
+      "x": 180
+    },
+    "powered=true,facing=down":{
+      "model": "oneironaut:block/hover_elevator_powered",
+      "x": 180
+    },
+    "powered=false,facing=up": {
+      "model": "oneironaut:block/hover_elevator_unpowered"
+    },
+    "powered=true,facing=up":{
+      "model": "oneironaut:block/hover_elevator_powered"
+    },
+    "powered=false,facing=east": {
+      "model": "oneironaut:block/hover_elevator_unpowered",
+      "x": 90,
+      "y": 90
+    },
+    "powered=true,facing=east":{
+      "model": "oneironaut:block/hover_elevator_powered",
+      "x": 90,
+      "y": 90
+    },
+    "powered=false,facing=west": {
+      "model": "oneironaut:block/hover_elevator_unpowered",
+      "x": 90,
+      "y": 270
+    },
+    "powered=true,facing=west":{
+      "model": "oneironaut:block/hover_elevator_powered",
+      "x": 90,
+      "y": 270
+    },
+    "powered=false,facing=north": {
+      "model": "oneironaut:block/hover_elevator_unpowered",
+      "x": 90
+    },
+    "powered=true,facing=north":{
+      "model": "oneironaut:block/hover_elevator_powered",
+      "x": 90
+    },
+    "powered=false,facing=south": {
+      "model": "oneironaut:block/hover_elevator_unpowered",
+      "x": 270
+    },
+    "powered=true,facing=south":{
+      "model": "oneironaut:block/hover_elevator_powered",
+      "x": 270
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "oneironaut:item/insulated_trinket",
+      "predicate": {
+        "hexcasting:has_patterns": -0.01
+      }
+    },
+    {
+      "model": "oneironaut:item/insulated_trinket_filled",
+      "predicate": {
+        "hexcasting:has_patterns": 0.99
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "oneironaut:item/insulated_trinket"
+  }
+}

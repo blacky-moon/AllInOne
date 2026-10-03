@@ -1,0 +1,20 @@
+{
+  "name": "oneironaut.advancements.lore.treatise1",
+  "icon": "oneironaut:memory_fragment",
+  "category": "hexcasting:lore",
+  "advancement": "oneironaut:lore/treatise1",
+  "sortnum": 8,
+  "pages": [
+    "oneironaut.page.lore.treatise1.1",
+    "oneironaut.page.lore.treatise1.2",
+    "oneironaut.page.lore.treatise1.3",
+    {
+      "type": "patchouli:link",
+      "text": "oneironaut.page.lore.treatise1.4",
+      "url": "https://xkcd.com/1638/",
+      "link_text": "oneironaut.page.lore.treatise1.4.link"
+    },
+    "oneironaut.page.lore.treatise1.5",
+    "oneironaut.page.lore.treatise1.6"
+  ]
+}

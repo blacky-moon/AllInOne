@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,imbued=false": {
+      "model": "hexdebug:block/enlightened_splicing_table/dim",
+      "y": 90
+    },
+    "facing=east,imbued=true": {
+      "model": "hexdebug:block/enlightened_splicing_table/lit",
+      "y": 90
+    },
+    "facing=north,imbued=false": {
+      "model": "hexdebug:block/enlightened_splicing_table/dim"
+    },
+    "facing=north,imbued=true": {
+      "model": "hexdebug:block/enlightened_splicing_table/lit"
+    },
+    "facing=south,imbued=false": {
+      "model": "hexdebug:block/enlightened_splicing_table/dim",
+      "y": 180
+    },
+    "facing=south,imbued=true": {
+      "model": "hexdebug:block/enlightened_splicing_table/lit",
+      "y": 180
+    },
+    "facing=west,imbued=false": {
+      "model": "hexdebug:block/enlightened_splicing_table/dim",
+      "y": 270
+    },
+    "facing=west,imbued=true": {
+      "model": "hexdebug:block/enlightened_splicing_table/lit",
+      "y": 270
+    }
+  }
+}

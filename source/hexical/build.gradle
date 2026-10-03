@@ -1,0 +1,149 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'idea'
+    id 'net.neoforged.moddev' version '2.0.141'
+    id 'org.jetbrains.kotlin.jvm' version '2.2.0'
+}
+
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+repositories {
+    mavenLocal()
+    maven {
+        name = 'Kotlin for Forge'
+        url = 'https://thedarkcolour.github.io/KotlinForForge/'
+        content { includeGroup "thedarkcolour" }
+    }
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+    }
+    maven {
+        name = "Illusive Soulworks maven"
+        url = "https://maven.theillusivec4.top/"
+    }
+    maven {
+        name = 'Kosmx'
+        url = 'https://maven.kosmx.dev/'
+    }
+    maven {
+        name = 'BlameJared'
+        url = 'https://maven.blamejared.com/'
+    }
+    maven {
+        name = 'Terraformers'
+        url = 'https://maven.terraformersmc.com/releases'
+    }
+    maven {
+        name = 'Shedaniel'
+        url = 'https://maven.shedaniel.me/'
+    }
+    mavenCentral()
+}
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+kotlin.jvmToolchain(21)
+
+sourceSets {
+    main {
+        resources {
+            // Добавляем папку generated, чтобы игра видела сгенерированные рецепты и модели
+            srcDirs = ['src/main/resources', 'src/generated/resources']
+        }
+    }
+}
+
+neoForge {
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    // ДОБАВЬТЕ ЭТУ СЕКЦИЮ
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            systemProperty 'mixin.debug.export', 'true'
+        }
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        // === ИСПРАВЛЕННЫЙ БЛОК DATA ===
+        data {
+            data()
+            programArguments.addAll(
+                    '--mod', project.mod_id,
+                    '--all',
+                    '--output', file('src/generated/resources/').absolutePath,
+                    '--existing', file('src/main/resources/').absolutePath
+            )
+        }
+    }
+}
+
+    processResources {
+    def ver = version
+    inputs.property "version", ver
+    filesMatching("META-INF/neoforge.mods.toml") {
+        expand "version": ver
+    }
+}
+dependencies {
+    implementation 'thedarkcolour:kotlinforforge-neoforge:5.3.0'
+
+
+    implementation files("${rootProject.rootDir}/libs/hexcasting-neoforge-1_21_1-0_12_0-devel-patched.jar")
+    implementation files("${rootProject.rootDir}/libs/paucal-0.7.1-noelle+1.21.1-neoforge.jar")
+    implementation files("${rootProject.rootDir}/libs/architectury-13.0.8-neoforge.jar")
+    implementation files("${rootProject.rootDir}/libs/Patchouli-1.21.1-93-NEOFORGE.jar")
+    implementation files("${rootProject.rootDir}/libs/cloth-config-15.0.140-neoforge.jar")
+    implementation files("${rootProject.rootDir}/libs/inline-neoforge-1.21.1-1.2.2.jar")
+    implementation files("${rootProject.rootDir}/libs/caelus-neoforge-7.0.1+1.21.1.jar")
+    implementation files("${rootProject.rootDir}/libs/hexpose-1.0.1-neoforge.jar")
+    implementation files("${rootProject.rootDir}/libs/emi-1.1.24+1.21.1+neoforge.jar")
+    implementation "dev.kosmx.player-anim:player-animation-lib-forge:2.0.4+1.21.1"
+    // Compile against only the API artifact
+    compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
+
+}
+tasks.named('jar') {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/repo"
+        }
+    }
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

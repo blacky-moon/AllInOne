@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "package": "dev.tizu.hexcessible.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "DimmedMixin",
+    "DrawStateMixin",
+    "DrawStateParentElemMixin",
+    "DrawStateScreenMixin",
+    "FloatiesMixin",
+    "GuiBookMixin",
+    "GuiSpellcastingEscapeMixin",
+    "KeyDocsScreenMixin",
+    "NoHexicalEvokeMixin",
+    "NoHexicalWalkMixin",
+    "PerWorldLearnMixin",
+    "RenderLibMixin",
+    "GuiSpellcastingMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

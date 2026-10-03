@@ -1,0 +1,91 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'idea'
+    id 'net.neoforged.moddev' version '2.0.141'
+    id 'org.jetbrains.kotlin.jvm' version '2.3.0'
+}
+
+version = project.mod_version
+group = project.mod_group_id
+base {
+    archivesName = project.mod_id
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        name = 'Kotlin for Forge'
+        url = 'https://thedarkcolour.github.io/KotlinForForge/'
+        content { includeGroup "thedarkcolour" }
+    }
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+kotlin.jvmToolchain(21)
+
+neoForge {
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+        data {
+            data()
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+dependencies {
+    implementation 'thedarkcolour:kotlinforforge-neoforge:5.5.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.3.0"
+    implementation fileTree(dir: "${rootProject.rootDir}/libs", include: "*.jar")
+    implementation 'org.jblas:jblas:1.2.5'
+    implementation 'org.ejml:ejml-simple:0.46.0'
+
+}
+tasks.test {
+    useJUnitPlatform()
+}
+tasks.withType(ProcessResources).configureEach {
+    var replaceProperties = [
+            minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,
+            neo_version         : neo_version, neo_version_range: neo_version_range,
+            loader_version_range: loader_version_range,
+            mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors         : mod_authors, mod_description: mod_description
+    ]
+    inputs.properties replaceProperties
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties + [project: project]
+    }
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

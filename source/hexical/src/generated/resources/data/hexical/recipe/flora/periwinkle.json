@@ -1,0 +1,14 @@
+{
+  "type": "hexical:flora",
+  "cost": 10000,
+  "input": {
+    "item": "hexical:periwinkle"
+  },
+  "state": {
+    "Name": "hexical:periwinkle",
+    "Properties": {
+      "facing": "north",
+      "flower_amount": "1"
+    }
+  }
+}

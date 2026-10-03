@@ -1,0 +1,13 @@
+{
+  "type": "hexical:flora",
+  "cost": 7500,
+  "input": {
+    "item": "minecraft:nether_wart"
+  },
+  "state": {
+    "Name": "minecraft:nether_wart",
+    "Properties": {
+      "age": "0"
+    }
+  }
+}

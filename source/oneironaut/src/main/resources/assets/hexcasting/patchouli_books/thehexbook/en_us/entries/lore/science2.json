@@ -1,0 +1,11 @@
+{
+  "name": "oneironaut.advancements.lore.science2",
+  "icon": "oneironaut:memory_fragment",
+  "category": "hexcasting:lore",
+  "advancement": "oneironaut:lore/science2",
+  "sortnum": 9,
+  "pages": [
+    "oneironaut.page.lore.science2.1",
+    "oneironaut.page.lore.science2.2"
+  ]
+}

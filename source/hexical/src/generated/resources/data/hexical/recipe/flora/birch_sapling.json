@@ -1,0 +1,13 @@
+{
+  "type": "hexical:flora",
+  "cost": 50000,
+  "input": {
+    "item": "minecraft:birch_sapling"
+  },
+  "state": {
+    "Name": "minecraft:birch_sapling",
+    "Properties": {
+      "stage": "0"
+    }
+  }
+}

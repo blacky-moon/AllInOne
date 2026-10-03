@@ -1,0 +1,21 @@
+{
+  "name": "item.oneironaut.monkfruit",
+  "category": "hexcasting:items",
+  "icon": "oneironaut:monkfruit",
+  "sortnum": 4,
+  "pages": [
+    "oneironaut.page.monkfruit.1",
+    {
+      "type": "patchouli:crafting",
+      "recipe": "oneironaut:monkfruit_sugar",
+      "text": "oneironaut.page.monkfruit.2",
+      "title": ""
+    },
+    "oneironaut.page.monkfruit.3",
+    {
+      "type": "patchouli:crafting",
+      "recipe": "oneironaut:mind_scalpel",
+      "text": "oneironaut.page.monkfruit.4"
+    }
+  ]
+}

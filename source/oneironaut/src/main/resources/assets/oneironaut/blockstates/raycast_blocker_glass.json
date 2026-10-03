@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "oneironaut:block/raycast_blocker_glass" }
+  }
+}

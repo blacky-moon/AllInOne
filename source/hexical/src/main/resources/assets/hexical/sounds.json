@@ -1,0 +1,61 @@
+{
+	"amethyst_melt": {
+		"subtitle": "subtitles.hexical.amethyst_melt",
+		"sounds": ["liquid/lavapop"]
+	},
+	"evoking_murmur": {
+		"subtitle": "subtitles.hexical.evoking_murmur",
+		"sounds": ["mob/evocation_illager/prepare_wololo"]
+	},
+	"handbell_chimes": {
+		"subtitle": "subtitles.hexical.handbell_chimes",
+		"sounds": ["hexical:handbell"]
+	},
+	"item_dunks": {
+		"subtitle": "subtitles.hexical.item_dunks",
+		"sounds": [
+			"item/bottle/fill1",
+			"item/bottle/fill2",
+			"item/bottle/fill3",
+			"item/bottle/fill4"
+		]
+	},
+	"lamp_activate": {
+		"subtitle": "subtitles.hexical.lamp_activate",
+		"sounds": ["hexical:lamp_activate"]
+	},
+	"lamp_deactivate": {
+		"subtitle": "subtitles.hexical.lamp_deactivate",
+		"sounds": ["hexical:lamp_deactivate"]
+	},
+	"magic_wooshes": {
+		"subtitle": "subtitles.hexical.magic_wooshes",
+		"sounds": ["mob/evocation_illager/cast1", "mob/evocation_illager/cast2"]
+	},
+	"replenish_air": {
+		"subtitle": "subtitles.hexical.replenish_air",
+		"sounds": [
+			{
+				"name": "entity/pufferfish/blow_up1",
+				"volume": 0.45
+			}, {
+				"name": "entity/pufferfish/blow_up2",
+				"volume": 0.45
+			}
+		]
+	},
+	"babelbug_chirps": {
+		"subtitle": "subtitles.hexical.babelbug_chirps",
+		"sounds": [
+			"hexical:babelbug_chirps_0",
+			"hexical:babelbug_chirps_1",
+			"hexical:babelbug_chirps_2",
+			"hexical:babelbug_chirps_3",
+			"hexical:babelbug_chirps_4"
+		]
+	},
+	"sudden_realization": {
+		"subtitle": "subtitles.hexical.sudden_realization",
+		"sounds": ["random/pop"]
+	}
+}

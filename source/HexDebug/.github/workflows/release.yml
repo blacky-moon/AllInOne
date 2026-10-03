@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: Perform a dry run
+        type: boolean
+        default: false
+
+env:
+  PYPI_PACKAGE: hexdoc-hexdebug
+
+permissions:
+  contents: read
+
+jobs:
+  build-docs:
+    uses: ./.github/workflows/docs.yml
+    permissions:
+      contents: write
+      pages: read
+    with:
+      deploy-pages: ${{ github.event_name == 'push' || !inputs.dry-run }}
+      release: true
+
+  publish-pypi:
+    needs: build-docs
+    if: github.event_name == 'push' || !inputs.dry-run
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/${{ env.PYPI_PACKAGE }}
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: hexdoc-build
+          path: dist
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1

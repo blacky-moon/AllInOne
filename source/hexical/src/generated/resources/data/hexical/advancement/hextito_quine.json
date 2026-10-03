@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "hextito_quine": {
+      "trigger": "hexical:hextito_quine"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.hexical.hextito_quine.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "hexical:hextito"
+    },
+    "title": {
+      "translate": "advancements.hexical.hextito_quine.title"
+    }
+  },
+  "requirements": [
+    [
+      "hextito_quine"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

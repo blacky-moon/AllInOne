@@ -1,0 +1,13 @@
+{
+  "type": "hexical:flora",
+  "cost": 50000,
+  "input": {
+    "item": "minecraft:jungle_sapling"
+  },
+  "state": {
+    "Name": "minecraft:jungle_sapling",
+    "Properties": {
+      "stage": "0"
+    }
+  }
+}

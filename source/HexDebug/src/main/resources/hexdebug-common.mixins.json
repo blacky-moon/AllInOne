@@ -1,0 +1,30 @@
+{
+  "required": true,
+  "package": "gay.object.hexdebug.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+    "MixinGuiSpellcasting",
+    "MixinScreen",
+    "MixinShiftScrollListener"
+  ],
+  "mixins": [
+    "MixinBlockEntityAbstractImpetus",
+    "MixinBlockSlate",
+    "MixinCastingEnvironment",
+    "MixinCircleExecutionState",
+    "MixinDatagenMain",
+    "MixinMsgShiftScrollC2S",
+    "MixinOpBrainsweepSpell",
+    "MixinOpEval",
+    "MixinOpImpetusDir",
+    "MixinOpImpetusPos",
+    "MixinPlayerBasedCastEnv",
+    "MixinStaffCastEnv",
+    "interop.emi.MixinEmiScreenManager"
+  ],
+  "plugin": "gay.object.hexdebug.mixin.HexDebugMixinConfigPlugin",
+  "mixinextras": {
+    "minVersion": "0.5.0"
+  }
+}

@@ -1,0 +1,142 @@
+package com.bluup.manifestation.client;
+
+import com.bluup.manifestation.Manifestation;
+import com.bluup.manifestation.client.menu.ui.MenuScreen;
+import com.bluup.manifestation.client.hud.StaffBatteryHudOverlay;
+import com.bluup.manifestation.client.render.CorridorPortalBlockEntityRenderer;
+import com.bluup.manifestation.client.render.EquationSynthBlockEntityRenderer;
+import com.bluup.manifestation.client.render.IntentRelayBlockEntityRenderer;
+import com.bluup.manifestation.client.render.MindVaultBlockEntityRenderer;
+import com.bluup.manifestation.common.ManifestationNetworking;
+import com.bluup.manifestation.common.menu.MenuPayload;
+import com.bluup.manifestation.server.ManifestationConfig;
+import com.bluup.manifestation.server.block.ManifestationBlocks;
+import com.bluup.manifestation.server.item.ManifestationItems;
+import com.bluup.manifestation.server.item.MemoryCrystalData;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+
+/**
+ * Client entrypoint. Runs on every client, both connected-to-dedicated-server
+ * and singleplayer.
+ *
+ */
+public final class ManifestationClient implements ClientModInitializer {
+
+    @Override
+    public void onInitializeClient() {
+        Manifestation.LOGGER.info("Manifestation client initializing.");
+        ManifestationConfig.INSTANCE.load();
+
+        BlockRenderLayerMap.INSTANCE.putBlock(
+            ManifestationBlocks.INTENT_RELAY_BLOCK,
+            RenderType.cutout()
+        );
+        BlockRenderLayerMap.INSTANCE.putBlock(
+            ManifestationBlocks.CORRIDOR_PORTAL_BLOCK,
+            RenderType.translucent()
+        );
+        BlockRenderLayerMap.INSTANCE.putBlock(
+            ManifestationBlocks.EQUATION_SYNTH_BLOCK,
+            RenderType.cutout()
+        );
+        BlockEntityRenderers.register(
+            ManifestationBlocks.CORRIDOR_PORTAL_BLOCK_ENTITY,
+            CorridorPortalBlockEntityRenderer::new
+        );
+        BlockEntityRenderers.register(
+            ManifestationBlocks.INTENT_RELAY_BLOCK_ENTITY,
+            IntentRelayBlockEntityRenderer::new
+        );
+        BlockEntityRenderers.register(
+            ManifestationBlocks.MIND_VAULT_BLOCK_ENTITY,
+            MindVaultBlockEntityRenderer::new
+        );
+        BlockEntityRenderers.register(
+            ManifestationBlocks.EQUATION_SYNTH_BLOCK_ENTITY,
+            EquationSynthBlockEntityRenderer::new
+        );
+        HexReliquaryLensOverlay.register();
+        IntentShifterLensOverlay.register();
+        MindVaultLensOverlay.register();
+        IntentShifterRuneEffects.register();
+        SplinterVisuals.register();
+        HexTrailVisuals.register();
+        EquationCloudVisuals.register();
+        SpellCircleVisuals.register();
+        StaffBatteryHudOverlay.register();
+
+        ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
+            if (stack.isEmpty() || stack.is(ManifestationItems.MEMORY_CRYSTAL)) {
+                return;
+            }
+
+            String memoryId = MemoryCrystalData.getMemoryId(stack);
+            if (memoryId == null) {
+                return;
+            }
+
+            lines.add(Component.literal("Memory Crystal [" + memoryId + "]"));
+        });
+
+        ClientPlayNetworking.registerGlobalReceiver(
+                ManifestationNetworking.SHOW_MENU_S2C,
+                (client, handler, buf, responseSender) -> {
+                    // Decode on the networking thread - it's cheap and pure.
+                    final MenuPayload payload;
+                    try {
+                        payload = MenuPayload.read(buf);
+                    } catch (Throwable t) {
+                        Manifestation.LOGGER.error(
+                                "Manifestation: failed to decode menu packet", t);
+                        return;
+                    }
+
+                    // But open the screen on the render thread.
+                    client.execute(() -> openMenu(client, payload));
+                }
+        );
+
+        ClientPlayNetworking.registerGlobalReceiver(
+                ManifestationNetworking.OPEN_EQUATION_SYNTH_S2C,
+                (client, handler, buf, responseSender) -> {
+                    final var pos = buf.readBlockPos();
+                    client.execute(() -> client.setScreen(new EquationSynthScreen(pos)));
+                }
+        );
+
+    }
+
+    private static void openMenu(Minecraft mc, MenuPayload payload) {
+        ActiveMenuState state = ActiveMenuState.get();
+
+        if (state.isReopenSuppressed(payload)) {
+            Manifestation.LOGGER.debug(
+                    "Manifestation: menu arrived during close-suppression window; dropping.");
+            return;
+        }
+
+        if (state.isActive() && !(mc.screen instanceof MenuScreen)) {
+            Manifestation.LOGGER.debug(
+                    "Manifestation: clearing stale active menu state with no menu screen present.");
+            state.clear();
+        }
+
+        if (state.isActive()) {
+            Manifestation.LOGGER.debug(
+                    "Manifestation: menu arrived while another is active; dropping.");
+            return;
+        }
+
+        InteractionHand hand = payload.hand();
+        state.open(payload, hand);
+        mc.setScreen(new MenuScreen(payload, hand));
+    }
+}

@@ -1,0 +1,37 @@
+modLoader = "kotlinforforge"
+loaderVersion = "[5.10,)"
+license = "${license}"
+issueTrackerURL="https://github.com/KyanBirb/world-casting/issues"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${version}"
+displayName = "${mod_name}"
+logoFile = "${mod_id}.png"
+credits = "${credits}"
+authors = "${mod_author}"
+description = '''${description}'''
+
+[[mixins]]
+config = "${mod_id}.mixins.json"
+[[mixins]]
+config = "${mod_id}.neoforge.mixins.json"
+
+[[dependencies."${mod_id}"]]
+modId = "neoforge"
+type = "required"
+versionRange = "[${neoforge_version},)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies."${mod_id}"]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies."${mod_id}"]]
+modId = "sable"
+type = "required"
+versionRange = "[${sable_min_version}, ${sable_max_version})"
+ordering = "NONE"
+side = "BOTH"

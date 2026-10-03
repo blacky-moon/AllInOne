@@ -1,0 +1,31 @@
+{
+  "parent": "hexcasting:enlightenment",
+  "criteria": {
+    "entered_noosphere": {
+      "conditions": {
+        "to": "oneironaut:noosphere"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "oneironaut.advancements.noosphere.enter.description"
+    },
+    "frame": "goal",
+    "hidden": true,
+    "icon": {
+      "item": "oneironaut:pseudoamethyst_block"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "oneironaut.advancements.noosphere.enter"
+    }
+  },
+  "requirements": [
+    [
+      "entered_noosphere"
+    ]
+  ]
+}

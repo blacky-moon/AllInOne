@@ -1,0 +1,10 @@
+{
+  "type": "hexical:flora",
+  "cost": 7500,
+  "input": {
+    "item": "minecraft:dead_bush"
+  },
+  "state": {
+    "Name": "minecraft:dead_bush"
+  }
+}

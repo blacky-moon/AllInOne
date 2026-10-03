@@ -1,0 +1,81 @@
+{
+  "name": "complexhex.entry.expressions",
+  "category": "hexcasting:patterns/maths",
+  "icon": "minecraft:ender_eye",
+  "sortnum": 5,
+  "advancement": "hexcasting:root",
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:new_symbol",
+      "anchor": "complexhex:new_symbol",
+      "input": "str",
+      "output": "expression",
+      "text": "complexhex.page.expressions.new"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "complexhex.page.expressions.ops"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:substitute",
+      "anchor": "complexhex:substitute",
+      "input": "expr, expr, expr | num",
+      "output": "expr",
+      "text": "complexhex.page.expressions.substitute"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:equals",
+      "anchor": "complexhex:equals",
+      "input": "expr, expr | num",
+      "output": "expr",
+      "text": "complexhex.page.expressions.equals"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:piecewise",
+      "anchor": "complexhex:piecewise",
+      "input": "expr, expr|num, expr|num",
+      "output": "expr",
+      "text": "complexhex.page.expressions.piecewise"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:derivative",
+      "anchor": "complexhex:derivative",
+      "input": "expr, expr",
+      "output": "expr",
+      "text": "complexhex.page.expressions.derivative"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:matrix",
+      "anchor": "complexhex:matrix",
+      "input": "num, num, expr",
+      "output": "matrix",
+      "text": "complexhex.page.expressions.matrix"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:summon/line",
+      "anchor": "complexhex:summon/line",
+      "input": "vec, expr",
+      "output": "entity",
+      "text": "complexhex.page.expressions.summon.line"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:summon/surface",
+      "anchor": "complexhex:summon/surface",
+      "input": "vec, expr",
+      "output": "entity",
+      "text": "complexhex.page.expressions.summon.surface"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "complexhex.page.expressions.kill"
+    }
+  ]
+}

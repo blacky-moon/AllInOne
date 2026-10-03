@@ -1,0 +1,30 @@
+package miyucomics.hexical.features.emi
+
+import dev.emi.emi.api.recipe.BasicEmiRecipe
+import dev.emi.emi.api.stack.EmiIngredient
+import dev.emi.emi.api.stack.EmiStack
+import dev.emi.emi.api.widget.WidgetHolder
+import miyucomics.hexical.HexicalMain
+import miyucomics.hexical.features.transmuting.TransmutingRecipe   // <-- ИСПРАВЛЕНО
+import miyucomics.hexical.misc.TextUtilities
+import net.minecraft.resources.ResourceLocation
+
+class TransmutingEmi(val recipe: TransmutingRecipe) : BasicEmiRecipe(HexicalEmi.Companion.TRANSMUTING_CATEGORY, recipe.id, 134, 52) {
+    init {
+        this.inputs.add(EmiIngredient.of(recipe.input))
+        this.outputs.addAll(recipe.output.map(EmiStack::of))
+    }
+
+    override fun addWidgets(widgets: WidgetHolder) {
+        widgets.addTexture(OVERLAY, 0, 0, 134, 40, 0, 40 * (this.outputs.size - 1), 134, 40, 256, 128)
+        widgets.addSlot(inputs[0], 11, 11)
+        this.outputs.forEachIndexed { index, stack ->
+            widgets.addSlot(stack, 49 + 28 * index, 11).recipeContext(this)
+        }
+        widgets.addText(TextUtilities.getCostText(recipe.cost), 10, 37, -1, true)
+    }
+
+    companion object {
+        private val OVERLAY: ResourceLocation = HexicalMain.id("textures/gui/transmuting_emi.png")
+    }
+}

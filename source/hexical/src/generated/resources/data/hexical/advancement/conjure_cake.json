@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "conjure_cake": {
+      "trigger": "hexical:conjure_cake"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.hexical.conjure_cake.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "minecraft:cake"
+    },
+    "title": {
+      "translate": "advancements.hexical.conjure_cake.title"
+    }
+  },
+  "requirements": [
+    [
+      "conjure_cake"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

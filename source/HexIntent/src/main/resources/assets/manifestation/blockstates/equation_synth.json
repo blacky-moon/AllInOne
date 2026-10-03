@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "focus=false,active=false": {
+      "model": "manifestation:block/equation_synth"
+    },
+    "focus=true,active=false": {
+      "model": "manifestation:block/equation_synth_focus"
+    },
+    "focus=false,active=true": {
+      "model": "manifestation:block/equation_synth"
+    },
+    "focus=true,active=true": {
+      "model": "manifestation:block/equation_synth_active"
+    }
+  }
+}

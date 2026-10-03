@@ -1,0 +1,13 @@
+{
+  "type": "hexical:flora",
+  "cost": 15000,
+  "input": {
+    "item": "minecraft:pitcher_plant"
+  },
+  "state": {
+    "Name": "minecraft:pitcher_plant",
+    "Properties": {
+      "half": "lower"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "hexcasting:lore",
+  "criteria": {
+    "grant": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "oneironaut.advancements.lore.root.description"
+    },
+    "frame": "task",
+    "hidden": true,
+    "icon": {
+      "item": "oneironaut:memory_fragment"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "oneironaut.advancements.lore.root"
+    }
+  },
+  "requirements": [
+    [
+      "grant"
+    ]
+  ]
+}

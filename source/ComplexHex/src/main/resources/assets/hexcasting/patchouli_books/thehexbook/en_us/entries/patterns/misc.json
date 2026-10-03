@@ -1,0 +1,18 @@
+{
+  "name": "complexhex.entry.misc",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:raw_iron",
+  "sortnum": 11,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "complexhex:ascii",
+      "anchor": "complexhex:ascii",
+      "input": "num/string",
+      "output": "string/num",
+      "text": "complexhex.page.misc.ascii"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "hexical:flora",
+  "cost": 50000,
+  "input": {
+    "item": "minecraft:bamboo"
+  },
+  "state": {
+    "Name": "minecraft:bamboo",
+    "Properties": {
+      "age": "0",
+      "leaves": "none",
+      "stage": "0"
+    }
+  }
+}

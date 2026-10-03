@@ -1,0 +1,10 @@
+{
+  "type": "hexical:flora",
+  "cost": 5000,
+  "input": {
+    "item": "minecraft:cornflower"
+  },
+  "state": {
+    "Name": "minecraft:cornflower"
+  }
+}

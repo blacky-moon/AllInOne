@@ -1,0 +1,168 @@
+package com.bluup.manifestation.server.action
+
+import at.petrak.hexcasting.api.casting.iota.DoubleIota
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.iota.ListIota
+import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
+import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughArgs
+import com.bluup.manifestation.Manifestation
+import com.bluup.manifestation.common.menu.MenuEntry
+import com.bluup.manifestation.common.menu.StoredIota
+import com.bluup.manifestation.server.iota.UiButtonIota
+import com.bluup.manifestation.server.iota.UiCheckboxIota
+import com.bluup.manifestation.server.iota.UiDropdownIota
+import com.bluup.manifestation.server.iota.UiInputIota
+import com.bluup.manifestation.server.iota.UiNumericInputIota
+import com.bluup.manifestation.server.iota.UiSelectListIota
+import com.bluup.manifestation.server.iota.UiSectionIota
+import com.bluup.manifestation.server.iota.UiSliderIota
+import net.minecraft.network.chat.Component
+
+/**
+ * Shared iota-reading logic for the two menu operators.
+ *
+ * Error policy:
+ *   * Title wrong type / missing               -> hard mishap (MishapInvalidIota)
+ *   * Outer entry-list wrong type / missing    -> hard mishap
+ *   * Individual malformed entry               -> skip, keep going
+ *
+ * Entry model:
+ *   * UiButtonIota(label, actions)
+ *   * UiInputIota(label)
+ *   * UiNumericInputIota(label, current)
+ *   * UiSliderIota(label, min, max, current?)
+ *   * UiCheckboxIota(label, checked)
+ *   * UiSelectListIota(label, options, maxRows, multi)
+ *   * UiDropdownIota(label, options)
+ *   * UiSectionIota(label)
+ *
+ */
+internal object MenuReader {
+
+    data class ReadResult(val title: Component, val entries: List<MenuEntry>)
+
+    fun readMenu(stack: MutableList<Iota>): ReadResult {
+        if (stack.size < 2) {
+            throw MishapNotEnoughArgs(2, stack.size)
+        }
+
+        // Contract: stack top is title, item below is entry list.
+        val titleIota = stack.removeAt(stack.lastIndex)
+        val buttonsIota = stack.removeAt(stack.lastIndex)
+
+        val title: Component = titleIota.display()
+        if (buttonsIota !is ListIota) {
+            Manifestation.LOGGER.warn(
+                "MenuReader: buttons slot is NOT a ListIota — it is {}. Mishapping.",
+                buttonsIota::class.simpleName
+            )
+            // Restore original order before throwing.
+            stack.add(buttonsIota)
+            stack.add(titleIota)
+            throw MishapInvalidIota.ofType(buttonsIota, 1, "list")
+        }
+
+        val entries = mutableListOf<MenuEntry>()
+        var index = 0
+        for (entryIota in buttonsIota.list) {
+            val entry = tryReadEntry(entryIota, index)
+            if (entry != null) {
+                entries.add(entry)
+            } else {
+                Manifestation.LOGGER.warn(
+                    "MenuReader: entry[{}] REJECTED (see prior warning for reason)",
+                    index
+                )
+            }
+            index++
+        }
+        return ReadResult(title, entries)
+    }
+
+    fun readColumnCount(stack: MutableList<Iota>): Int {
+        if (stack.isEmpty()) {
+            throw MishapNotEnoughArgs(1, 0)
+        }
+        val top = stack.removeAt(stack.lastIndex)
+        if (top !is DoubleIota) {
+            stack.add(top)
+            throw MishapInvalidIota.ofType(top, 0, "double")
+        }
+        val cols = Math.round(top.double).toInt()
+        return cols.coerceIn(1, 10)
+    }
+
+    private fun tryReadEntry(entryIota: Iota, index: Int): MenuEntry? {
+        return when (entryIota) {
+            is UiInputIota -> {
+                MenuEntry.input(entryIota.label.display())
+            }
+
+            is UiSliderIota -> {
+                val current = if (entryIota.hasCurrent()) entryIota.current else null
+                MenuEntry.slider(entryIota.label.display(), entryIota.min, entryIota.max, current)
+            }
+
+            is UiNumericInputIota -> {
+                val current = if (entryIota.hasCurrent()) entryIota.current else null
+                MenuEntry.numericInput(entryIota.label.display(), current)
+            }
+
+            is UiCheckboxIota -> {
+                MenuEntry.checkbox(entryIota.label.display(), entryIota.isChecked)
+            }
+
+            is UiSelectListIota -> {
+                val options = entryIota.options.map { StoredIota.of(it) }
+                val labels = entryIota.options.map { it.display() }
+                MenuEntry.selectList(
+                    entryIota.label.display(),
+                    options,
+                    labels,
+                    entryIota.maxRows,
+                    entryIota.isMultiSelect
+                )
+            }
+
+            is UiButtonIota -> {
+                val stored = mutableListOf<StoredIota>()
+                var actionIndex = 0
+                for (action in entryIota.actions) {
+                    stored.add(StoredIota.of(action))
+                    actionIndex++
+                }
+
+                if (stored.isEmpty()) {
+                    Manifestation.LOGGER.warn(
+                        "  button[{}]: REJECTED — action-list is empty",
+                        index
+                    )
+                    null
+                } else {
+                    MenuEntry.button(entryIota.label.display(), stored)
+                }
+            }
+
+            is UiSectionIota -> {
+                MenuEntry.section(entryIota.label.display())
+            }
+
+            is UiDropdownIota -> {
+                MenuEntry.dropdown(
+                    entryIota.label.display(),
+                    entryIota.options.map { it.display() },
+                    entryIota.selectedIndex
+                )
+            }
+
+            else -> {
+                Manifestation.LOGGER.warn(
+                    "MenuReader: entry[{}] rejected because it is not a typed ui iota: {}",
+                    index,
+                    entryIota::class.simpleName
+                )
+                null
+            }
+        }
+    }
+}

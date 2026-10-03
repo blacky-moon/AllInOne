@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "oneironaut:block/wisp_battery_off"
+    },
+    "powered=true":{
+      "model": "oneironaut:block/wisp_battery_on"
+    }
+  }
+}

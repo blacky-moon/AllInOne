@@ -1,0 +1,39 @@
+{
+  "name": "oneironaut.entry.hover_elevator",
+  "category": "hexcasting:items",
+  "icon": "oneironaut:hover_elevator",
+  "sortnum": 8,
+  "advancement": "oneironaut:enter_noosphere",
+  "entry_color": "54398a",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.hover_elevator.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.hover_elevator.2"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "oneironaut:hover_elevator",
+      "text": "oneironaut.page.hover_elevator.3"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "oneironaut:textures/book/hovercube.png"
+      ],
+      "text": "oneironaut.page.hover_elevator.meme"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.hover_elevator.4"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "oneironaut:hover_repeater",
+      "text": "oneironaut.page.hover_elevator.5"
+    }
+  ]
+}

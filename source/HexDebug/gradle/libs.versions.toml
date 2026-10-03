@@ -1,0 +1,166 @@
+[versions]
+java = "21"
+
+kotlin = "2.0.21"
+kotlin-scripting-jvm = "2.0.21"
+kotlin-fabric = "1.13.0+kotlin.2.0.21"
+kotlin-forge = "5.6.0" # kotlinforforge 5.x совместим с NeoForge 1.21.1
+
+# Minecraft
+minecraft = { strictly = "1.21.1" }
+
+
+architectury = "13.0.8"
+architectury-plugin = { require = "[3.4, 3.5[" }
+architectury-loom = { require="[1.10, 1.11[" }  # <-- было [1.9, 1.10[
+fabric-loader = "0.16.9"
+fabric-api = "0.102.0+1.21.1"
+
+neoforge = "21.1.230"
+neoforge-dependency = "21.1"
+
+# === МОДЫ: раскомментируй и обнови версии когда выйдут под 1.21.1 ===
+# hexcasting = "0.12.0"
+# hexcasting-dependency = "0.12.0"
+# paucal = "0.7.0"
+# patchouli = "1.21-87"
+# patchouli-fabric = "1.21-87-FABRIC"
+# patchouli-neoforge = "1.21-87-NEOFORGE"
+# cardinalComponents = "6.1.0"
+# serializationHooks = "0.5.0"
+mixinExtras = "0.4.1"
+
+# в [libraries]:
+
+# trinkets = "3.8.0"
+# clothConfig = "15.0.140"
+# modMenu = "11.0.0"
+# caelus = "7.0.0+1.21"
+# devAuth = "1.2.1"
+# inline = "1.21-1.0.1"
+# ioticblocks = "1.21-1.0.0"
+# emi = "1.1.18+1.21.1"
+# hexical = "1.21-1.0.0"
+# hexpose = "1.21-1.0.0"
+# playerAnimator = "2.0.0+1.21"
+pkpcpbp = "0.1.0-pre-87"
+
+# other non-Minecraft dependencies
+findbugs-jsr305 = "3.0.2"
+asm = "9.7"
+dotenv = "2.0.0"
+shadow = "8.1.1"
+modPublish = "0.5.1"
+
+lsp4j = "0.23.0"
+ktor = "3.0.0"
+
+dokka = "2.1.0"
+plantuml = "1.2025.10"
+
+[bundles]
+asm = ["asm", "asm-analysis", "asm-commons", "asm-tree", "asm-util"]
+lsp4j = ["lsp4j", "lsp4j-debug", "lsp4j-jsonrpc", "lsp4j-jsonrpc-debug"]
+ktor = ["ktor-network", "ktor-network-jvm", "ktor-utils-jvm", "ktor-io-jvm"]
+
+[libraries]
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlin-fabric = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "kotlin-fabric" }
+kotlin-forge = { module = "thedarkcolour:kotlinforforge", version.ref = "kotlin-forge" }
+
+kotlin-scripting-jvm = { module = "org.jetbrains.kotlin:kotlin-scripting-jvm", version.ref = "kotlin-scripting-jvm" }
+
+minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+
+architectury = { module = "dev.architectury:architectury", version.ref = "architectury" }
+architectury-neoforge = { module = "dev.architectury:architectury-neoforge", version.ref = "architectury" }
+architectury-fabric = { module = "dev.architectury:architectury-fabric", version.ref = "architectury" }
+
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
+
+neoforge = { module = "net.neoforged:neoforge", version.ref = "neoforge" }
+mixinExtras-common = { module="io.github.llamalad7:mixinextras-common", version.ref="mixinExtras" }
+mixinExtras-fabric = { module="io.github.llamalad7:mixinextras-fabric", version.ref="mixinExtras" }
+mixinExtras-neoforge = { module="io.github.llamalad7:mixinextras-neoforge", version.ref="mixinExtras" }
+
+# === ЗАКОММЕНТИРОВАНО: раскомментируй когда моды выйдут под 1.21.1 ===
+# hexcasting-common = { module = "at.petra-k.hexcasting:hexcasting-common-1.21.1", version.ref = "hexcasting" }
+# hexcasting-fabric = { module = "at.petra-k.hexcasting:hexcasting-fabric-1.21.1", version.ref = "hexcasting" }
+# hexcasting-neoforge = { module = "at.petra-k.hexcasting:hexcasting-neoforge-1.21.1", version.ref = "hexcasting" }
+
+# paucal-common = { module = "at.petra-k.paucal:paucal-common-1.21.1", version.ref = "paucal" }
+# paucal-fabric = { module = "at.petra-k.paucal:paucal-fabric-1.21.1", version.ref = "paucal" }
+# paucal-neoforge = { module = "at.petra-k.paucal:paucal-neoforge-1.21.1", version.ref = "paucal" }
+
+# patchouli-xplat = { module = "vazkii.patchouli:Patchouli-xplat", version.ref = "patchouli" }
+# patchouli-fabric = { module = "vazkii.patchouli:Patchouli", version.ref = "patchouli-fabric" }
+# patchouli-neoforge = { module = "vazkii.patchouli:Patchouli", version.ref = "patchouli-neoforge" }
+
+# cardinalComponents = { module = "dev.onyxstudios.cardinal-components-api:cardinal-components-api", version.ref = "cardinalComponents" }
+# serializationHooks = { module = "io.github.tropheusj:serialization-hooks", version.ref = "serializationHooks" }
+# trinkets = { module = "dev.emi:trinkets", version.ref = "trinkets" }
+# modMenu = { module = "com.terraformersmc:modmenu", version.ref = "modMenu" }
+# caelus = { module = "top.theillusivec4.caelus:caelus-neoforge", version.ref = "caelus" }
+
+# mixinExtras-common = { module = "io.github.llamalad7:mixinextras-common", version.ref = "mixinExtras" }
+# mixinExtras-fabric = { module = "io.github.llamalad7:mixinextras-fabric", version.ref = "mixinExtras" }
+# mixinExtras-neoforge = { module = "io.github.llamalad7:mixinextras-neoforge", version.ref = "mixinExtras" }
+
+# clothConfig-common = { module = "me.shedaniel.cloth:cloth-config", version.ref = "clothConfig" }
+# clothConfig-fabric = { module = "me.shedaniel.cloth:cloth-config-fabric", version.ref = "clothConfig" }
+# clothConfig-neoforge = { module = "me.shedaniel.cloth:cloth-config-neoforge", version.ref = "clothConfig" }
+
+# devAuth-fabric = { module = "me.djtheredstoner:DevAuth-fabric", version.ref = "devAuth" }
+# devAuth-neoforge = { module = "me.djtheredstoner:DevAuth-neoforge-latest", version.ref = "devAuth" }
+
+# inline-fabric = { module = "com.samsthenerd.inline:inline-fabric", version.ref = "inline" }
+# inline-neoforge = { module = "com.samsthenerd.inline:inline-neoforge", version.ref = "inline" }
+
+# ioticblocks-common = { module = "gay.object.ioticblocks:ioticblocks-common", version.ref = "ioticblocks" }
+# ioticblocks-fabric = { module = "gay.object.ioticblocks:ioticblocks-fabric", version.ref = "ioticblocks" }
+# ioticblocks-neoforge = { module = "gay.object.ioticblocks:ioticblocks-neoforge", version.ref = "ioticblocks" }
+
+# emi-xplat = { module = "dev.emi:emi-xplat-intermediary", version.ref = "emi" }
+# emi-fabric = { module = "dev.emi:emi-fabric", version.ref = "emi" }
+# emi-neoforge = { module = "dev.emi:emi-neoforge", version.ref = "emi" }
+
+# hexical = { module = "libs:hexical", version.ref = "hexical" }
+# hexpose = { module = "miyucomics.hexpose:hexpose", version.ref = "hexpose" }
+
+# playerAnimator-fabric = { module = "dev.kosmx.player-anim:player-animation-lib-fabric", version.ref = "playerAnimator" }
+
+findbugs-jsr305 = { module = "com.google.code.findbugs:jsr305", version.ref = "findbugs-jsr305" }
+
+asm = { module = "org.ow2.asm:asm", version.ref = "asm" }
+asm-analysis = { module = "org.ow2.asm:asm-analysis", version.ref = "asm" }
+asm-commons = { module = "org.ow2.asm:asm-commons", version.ref = "asm" }
+asm-tree = { module = "org.ow2.asm:asm-tree", version.ref = "asm" }
+asm-util = { module = "org.ow2.asm:asm-util", version.ref = "asm" }
+
+lsp4j = { module = "org.eclipse.lsp4j:org.eclipse.lsp4j", version.ref = "lsp4j" }
+lsp4j-debug = { module = "org.eclipse.lsp4j:org.eclipse.lsp4j.debug", version.ref = "lsp4j" }
+lsp4j-jsonrpc = { module = "org.eclipse.lsp4j:org.eclipse.lsp4j.jsonrpc", version.ref = "lsp4j" }
+lsp4j-jsonrpc-debug = { module = "org.eclipse.lsp4j:org.eclipse.lsp4j.jsonrpc.debug", version.ref = "lsp4j" }
+
+ktor-network = { module = "io.ktor:ktor-network", version.ref = "ktor" }
+ktor-network-jvm = { module = "io.ktor:ktor-network-jvm", version.ref = "ktor" }
+ktor-utils-jvm = { module = "io.ktor:ktor-utils-jvm", version.ref = "ktor" }
+ktor-io-jvm = { module = "io.ktor:ktor-io-jvm", version.ref = "ktor" }
+
+pkpcpbp = { module = "at.petra-k.pkpcpbp:PKPCPBP", version.ref = "pkpcpbp" }
+
+dokka-base = { module = "org.jetbrains.dokka:dokka-base", version.ref = "dokka" }
+dokka-core = { module = "org.jetbrains.dokka:dokka-core", version.ref = "dokka" }
+dokka-kotlinAsJava = { module = "org.jetbrains.dokka:kotlin-as-java-plugin", version.ref = "dokka" }
+
+plantuml = { module = "net.sourceforge.plantuml:plantuml", version.ref = "plantuml" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+architectury = { id = "architectury-plugin", version.ref = "architectury-plugin" }
+architectury-loom = { id = "dev.architectury.loom", version.ref = "architectury-loom" }
+dotenv = { id = "co.uzzu.dotenv.gradle", version.ref = "dotenv" }
+shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
+modPublish = { id = "me.modmuss50.mod-publish-plugin", version.ref = "modPublish" }

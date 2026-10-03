@@ -1,0 +1,29 @@
+package dev.kyanbirb.world_casting.mixin.sable_compat.ambit;
+
+import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import dev.ryanhcode.sable.Sable;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.phys.Vec3;
+import org.spongepowered.asm.mixin.Final;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+
+@Mixin(CastingEnvironment.class)
+public class CastingEnvironmentMixin {
+
+    @Shadow
+    @Final
+    protected ServerLevel world;
+
+    @WrapMethod(method = "isVecInWorld")
+    private boolean world_casting$isVecInWorld(Vec3 vec, Operation<Boolean> original) {
+        boolean inWorld = original.call(vec);
+        if(inWorld && Sable.HELPER.isInPlotGrid(world, vec)) {
+            return Sable.HELPER.getContaining(world, vec) != null;
+        }
+        return inWorld;
+    }
+
+}

@@ -1,0 +1,96 @@
+{
+  "hexcasting.action.world_casting:": {
+    "sub_level": {
+      "get_containing": "Fragment Purification",
+      "pos": "Location Purification",
+      "min_bounds": "Lesser Boundary Prfn.",
+      "max_bounds": "Greater Boundary Prfn.",
+      "project_position": "Projection Distillation",
+      "get_radius": "Zone Dstl.: Fragment",
+      "mass": "Mass Purification",
+      "gravity": "Gravity Purification",
+      "velocity": "Velocity Purification",
+      "air_pressure": "Air Pressure Prfn.",
+
+      "push": "Push",
+      "place": "Place Fragment",
+      "assemble": "Fracture World",
+      "merge": "Merge",
+      "name": "Label Fragment"
+    },
+
+    "quaternion": {
+      "identity": "Identity Purification",
+      "orientation": "Orientation Purification",
+      "conjugate": "Conjugate Purification",
+      "construct": "Quaternion Exaltation",
+      "deconstruct": "Quaternion Disintegration",
+      "axis_angle": "Axial Distillation"
+    }
+  },
+
+  "hexcasting.mishap.location_not_in_sub_level": "Expected a position within a fragment but got %s instead",
+  "hexcasting.mishap.location_in_same_grid": "Expected a position within a different fragment or the world but got %s instead",
+  "hexcasting.mishap.invalid_value.class.fragment": "a fragment",
+  "hexcasting.mishap.world_casting.invalid_distance": "Distance between %s and %s is too great. Expected a distance of less than %s but got %s instead.",
+  "hexcasting.mishap.bad_block.moveable": "a block that can be moved",
+
+  "hexcasting.mishap.world_casting.generic.expected_non_zero": "Expected at least one parameter to be non-zero.",
+  "hexcasting.mishap.world_casting.generic.expected_non_air": "Expected at least one non air block in fracture area.",
+
+  "world_casting.entry": {
+    "quaternions": "Quaternions",
+    "quaternion_math": "Quaternion Operations",
+    "fragments": "Fragments",
+    "fragment_manipulation": "Fragment Manipulation"
+  },
+
+  "world_casting.page": {
+    "quaternions": [
+      "i don't currently have the capacity to explain this in depth so the 3b1b video will have to do for now:",
+      "the most important things to note are:$(br2)- A quaternion represents an orientation.$(br2)- Quaternions can be rotated by multiplying them together. The space of the operation depends on the order$(br)(eg. a * b rotates \"a\" locally by \"b\", and the opposite rotates it globally).$(br2)- they look scary but they don't bite i promise"
+    ],
+
+    "world_casting.quaternion": {
+      "identity": "Returns a quaternion that represents no rotation (upright, facing south).",
+      "orientation": "Returns a quaternion that represents the orientation of an entity or fragment.",
+      "conjugate": "Takes a quaternion and returns its conjugate (inverse)",
+      "mul": "Removes a quaternion from the top of the stack and rotates the following quaternion or vector by it.",
+      "construct": "Combine four numbers at the top of the stack into a quaternion's Real, I, J, and K components (bottom to top). At least one of the components must be non-zero, as the resulting quaternion is normalized.",
+      "deconstruct": "Split a quaternion into its Real, I, J, and K components (bottom to top)",
+      "axis_angle": "Removes a direction and an angle from the stack, and returns a quaternion that represents a rotation by the angle around the axis of the direction"
+    },
+
+    "fragments": [
+      "Fragments are separated sections of the world capable of moving independently. They can fall, roll around, and collide with things all while everything in them behaves as it would in the rest of the world.$(br)Hexes can interact with them normally as well.",
+      "When working with coordinates inside the space of a fragment, they appear localized relative to an arbitrary \"center\" position. Internally, these local positions are very large vectors and still behave like them when operated on."
+    ],
+
+    "world_casting.sub_level": {
+      "get_containing": "Removes a position or an entity from the stack and returns the fragment that contains it (or null).",
+      "pos": "Returns the local position of the center of mass for the fragment. $(l:patterns/fragments#world_casting:sub_level.project_position)$(action)Projection Distillation/$ can be used to transform it into global space.",
+      "min_bounds": "Returns the position of the local lower-north-west corner of the bounds of the fragment.",
+      "max_bounds": "Returns the position of the local upper-south-east corner of the bounds of the fragment.",
+      "project_position": "Transforms the given position into the space of the fragment. If the fragment is null, the position is transformed into global space.",
+      "get_radius": "Takes a position and a radius, returns every fragment within the radius",
+      "mass": "Returns the total mass of the fragment.",
+      "gravity": "Returns the gravity vector of the given position.",
+      "velocity": "Returns the global velocity at the position within a fragment.",
+      "air_pressure": "Returns the air pressure of the given position.",
+
+      "place": "Takes a position and orientation, and places a block from the inventory as a fragment. Costs about an eighth of one Amethyst Dust",
+      "assemble": "Takes a position and either a radius or an end position. If a radius is given, makes a fragment from all blocks around the position within the radius. If an end position is given, makes a fragment from all blocks between both positions. Returns the fragment that was created. Costs one fourth of an Amethyst Dust per block moved.",
+      "merge": "Takes an anchor position inside of a fragment, and a target anchor position in either the world or another fragment. Moves all the blocks from the first fragment to the space of the target position. Both positions must be within 5 blocks of each other. Costs one fourth of an Amethyst Dust per block moved.",
+      "push": "Takes a position within a fragment and a direction vector, and applies a momentary acceleration at the position with the direction and magnitude given by the second vector. Costs one-thousandth of an Amethyst Dust multiplied by the length of the direction and by the sum of the fragment's side lengths.",
+      "name": "Takes a fragment and sets the label to the name of the nametag in my other hand"
+    }
+  },
+
+  "world_casting.display": {
+    "fragment": {
+      "generic": "Fragment",
+      "generic_block": "Fragment: %s",
+      "unknown": "An unknown fragment"
+    }
+  }
+}

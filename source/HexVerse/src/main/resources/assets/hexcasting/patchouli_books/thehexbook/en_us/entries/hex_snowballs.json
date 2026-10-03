@@ -1,0 +1,41 @@
+{
+  "name": "hexverse.page.hex_snowballs.title",
+  "icon": "hexverse:hex_snowball_dust",
+  "category": "hexcasting:items",
+  "sortnum": 2,
+  "advancement": "hexcasting:root",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexverse.page.hex_snowballs.0"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hexverse:hex_snowball_dust",
+      "text": "hexverse.page.hex_snowballs.dust"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hexverse:hex_snowball_shard",
+      "text": "hexverse.page.hex_snowballs.shard"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hexverse:hex_snowball_crystal",
+      "text": "hexverse.page.hex_snowballs.crystal"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "hexverse:hex_snowball_quenched",
+      "text": "hexverse.page.hex_snowballs.quenched"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "hexverse.page.hex_snowballs.media"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "hexverse.page.hex_snowballs.media2"
+    }
+  ]
+}

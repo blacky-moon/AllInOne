@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "energized=false,facing=down": {
+      "model": "oneironaut:block/sentinel_trap_unpowered",
+      "x": 90
+    },
+    "energized=true,facing=down":{
+      "model": "oneironaut:block/sentinel_trap_powered",
+      "x": 90
+    },
+    "energized=false,facing=up": {
+      "model": "oneironaut:block/sentinel_trap_unpowered",
+      "x": 270
+    },
+    "energized=true,facing=up":{
+      "model": "oneironaut:block/sentinel_trap_powered",
+      "x": 270
+    },
+    "energized=false,facing=east": {
+      "model": "oneironaut:block/sentinel_trap_unpowered",
+      "y": 90
+    },
+    "energized=true,facing=east":{
+      "model": "oneironaut:block/sentinel_trap_powered",
+      "y": 90
+    },
+    "energized=false,facing=west": {
+      "model": "oneironaut:block/sentinel_trap_unpowered",
+      "y": 270
+    },
+    "energized=true,facing=west":{
+      "model": "oneironaut:block/sentinel_trap_powered",
+      "y": 270
+    },
+    "energized=false,facing=north": {
+      "model": "oneironaut:block/sentinel_trap_unpowered"
+    },
+    "energized=true,facing=north":{
+      "model": "oneironaut:block/sentinel_trap_powered"
+    },
+    "energized=false,facing=south": {
+      "model": "oneironaut:block/sentinel_trap_unpowered",
+      "y": 180
+    },
+    "energized=true,facing=south":{
+      "model": "oneironaut:block/sentinel_trap_powered",
+      "y": 180
+    }
+  }
+}

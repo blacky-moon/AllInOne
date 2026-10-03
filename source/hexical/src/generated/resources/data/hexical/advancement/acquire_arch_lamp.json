@@ -1,0 +1,34 @@
+{
+  "parent": "hexical:acquire_hand_lamp",
+  "criteria": {
+    "acquire_arch_lamp": {
+      "conditions": {
+        "items": [
+          {
+            "items": "hexical:arch_lamp"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.hexical.acquire_arch_lamp.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "hexical:arch_lamp"
+    },
+    "title": {
+      "translate": "advancements.hexical.acquire_arch_lamp.title"
+    }
+  },
+  "requirements": [
+    [
+      "acquire_arch_lamp"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

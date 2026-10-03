@@ -1,0 +1,13 @@
+{
+  "type": "hexical:flora",
+  "cost": 50000,
+  "input": {
+    "item": "minecraft:cherry_sapling"
+  },
+  "state": {
+    "Name": "minecraft:cherry_sapling",
+    "Properties": {
+      "stage": "0"
+    }
+  }
+}

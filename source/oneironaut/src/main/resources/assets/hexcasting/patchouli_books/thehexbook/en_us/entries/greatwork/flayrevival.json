@@ -1,0 +1,30 @@
+{
+  "name": "oneironaut.entry.flayrevival",
+  "category": "hexcasting:greatwork",
+  "icon": "minecraft:soul_lantern",
+  "sortnum": 1,
+  "advancement": "hexcasting:enlightenment",
+  "entry_color": "54398a",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.flayrevival.1"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "oneironaut:reviveflayed",
+      "anchor": "oneironaut:reviveflayed",
+      "input": "entity",
+      "output": "",
+      "text": "oneironaut.page.flayrevival.2"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.flayrevival.3"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.flayrevival.4"
+    }
+  ]
+}

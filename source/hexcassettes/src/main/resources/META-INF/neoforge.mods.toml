@@ -1,0 +1,36 @@
+modLoader = "kotlinforforge"
+loaderVersion = "[4,)"
+license = "MIT"
+issueTrackerURL = "https://github.com/blacky-moon/hexcassettes/issues"
+
+[[mixins]]
+config = "hexcassettes.mixins.json"
+
+[[mods]]
+modId = "hexcassettes"
+version = "${version}"
+displayName = "Hexcassettes"
+logoFile = "icon.png"
+authors = "miyucomics | blacky-moon"
+description = "An addon for all your daemon and delaying needs!"
+
+[[dependencies.hexcassettes]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hexcassettes]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.21.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hexcassettes]]
+modId = "hexcasting"
+type = "required"
+versionRange = "[0.12.0,)"
+ordering = "AFTER"
+side = "BOTH"

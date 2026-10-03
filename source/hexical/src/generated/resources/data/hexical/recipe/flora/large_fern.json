@@ -1,0 +1,13 @@
+{
+  "type": "hexical:flora",
+  "cost": 3500,
+  "input": {
+    "item": "minecraft:large_fern"
+  },
+  "state": {
+    "Name": "minecraft:large_fern",
+    "Properties": {
+      "half": "lower"
+    }
+  }
+}

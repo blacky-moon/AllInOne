@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "specklike": {
+      "trigger": "hexical:specklike"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.hexical.specklike.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:beacon"
+    },
+    "title": {
+      "translate": "advancements.hexical.specklike.title"
+    }
+  },
+  "requirements": [
+    [
+      "specklike"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,14 @@
+{
+  "type": "hexical:flora",
+  "cost": 6000,
+  "input": {
+    "item": "minecraft:sea_pickle"
+  },
+  "state": {
+    "Name": "minecraft:sea_pickle",
+    "Properties": {
+      "pickles": "1",
+      "waterlogged": "true"
+    }
+  }
+}

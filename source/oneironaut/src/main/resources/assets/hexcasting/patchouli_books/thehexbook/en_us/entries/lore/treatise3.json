@@ -1,0 +1,22 @@
+{
+  "name": "oneironaut.advancements.lore.treatise3",
+  "icon": "oneironaut:memory_fragment",
+  "category": "hexcasting:lore",
+  "advancement": "oneironaut:lore/treatise3",
+  "sortnum": 8,
+  "pages": [
+    "oneironaut.page.lore.treatise3.1",
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.lore.treatise3.2",
+      "title": "oneironaut.page.lore.treatise3.2.header"
+    },
+    "oneironaut.page.lore.treatise3.3",
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.lore.treatise3.4",
+      "title": "oneironaut.page.lore.treatise3.4.header"
+    },
+    "oneironaut.page.lore.treatise3.5"
+  ]
+}

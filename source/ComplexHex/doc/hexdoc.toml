@@ -1,0 +1,49 @@
+modid = "complexhex"
+book = "hexcasting:thehexbook"
+default_lang = "en_us"
+default_branch = "0.1.x"
+
+resource_dirs = [  # top takes priority
+    "resources",
+    "{$_common.src}/main/resources",
+    "{$_fabric.src}/main/resources",
+    "{$_forge.src}/main/resources",
+    { modid="hexcasting" },
+    { modid="minecraft" },
+    { modid="hexdoc" },
+]
+export_dir = "src/hexdoc_complexhex/_export/generated"
+
+[template]
+icon = "icon.png"
+include = [
+    "complexhex",
+    "hexcasting",
+    "hexdoc",
+]
+
+[template.args]
+mod_name = "Complex Hex"
+author = "kineticcat"
+show_landing_text = false
+
+[extra.hexcasting]
+_pattern_regex = { "!Raw"='HexPattern[\s\S]+?make\(\"(?P<signature>[qweasd]+)\", HexDir\.(?P<startdir>[A-Z_]+), \"(?P<name>[^\"]+?)\"' }
+
+[[extra.hexcasting.pattern_stubs]]
+path = "{^^^_common.package}/casting/ComplexhexPatternRegistry.java"
+regex = "{^_pattern_regex}"
+
+# platforms
+
+[_common]
+src = "../common/src"
+package = "{src}/main/java/dev/kineticcat/complexhex"
+
+[_fabric]
+src = "../fabric/src"
+package = "{src}/main/java/dev/kineticcat/complexhex/fabric"
+
+[_forge]
+src = "../forge/src"
+package = "{src}/main/java/dev/kineticcat/complexhex/forge"

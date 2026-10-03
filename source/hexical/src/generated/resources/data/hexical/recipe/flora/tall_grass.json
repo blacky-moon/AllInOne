@@ -1,0 +1,13 @@
+{
+  "type": "hexical:flora",
+  "cost": 3000,
+  "input": {
+    "item": "minecraft:tall_grass"
+  },
+  "state": {
+    "Name": "minecraft:tall_grass",
+    "Properties": {
+      "half": "lower"
+    }
+  }
+}

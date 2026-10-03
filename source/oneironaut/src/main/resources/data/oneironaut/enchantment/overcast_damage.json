@@ -1,0 +1,15 @@
+{
+  "description": {
+    "translate": "enchantment.oneironaut.overcast_damage"
+  },
+  "supported_items": "#oneironaut:enchantable/overcast_damage",
+  "primary_items": "#oneironaut:enchantable/overcast_damage",
+  "weight": 1,
+  "max_level": 5,
+  "min_cost": { "base": 45, "per_level_above_first": 15 },
+  "max_cost": { "base": 95, "per_level_above_first": 15 },
+  "anvil_cost": 8,
+  "slots": ["mainhand"],
+  "exclusive_set": "#oneironaut:exclusive_set/overcast_damage",
+  "effects": {}
+}

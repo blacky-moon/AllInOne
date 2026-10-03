@@ -1,0 +1,98 @@
+{
+  "name": "world_casting.entry.fragments",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:grass_block",
+  "sortnum": 6,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "world_casting.page.fragments_1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "world_casting.page.fragments_2"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:sub_level.get_containing",
+      "anchor": "world_casting:sub_level.get_containing",
+      "input": "vec | entity",
+      "output": "fragment or null",
+      "text": "world_casting.page.world_casting.sub_level.get_containing"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:sub_level.pos",
+      "anchor": "world_casting:sub_level.pos",
+      "input": "fragment",
+      "output": "vec",
+      "text": "world_casting.page.world_casting.sub_level.pos"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:sub_level.min_bounds",
+      "anchor": "world_casting:sub_level.min_bounds",
+      "input": "fragment",
+      "output": "vec",
+      "text": "world_casting.page.world_casting.sub_level.min_bounds"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:sub_level.max_bounds",
+      "anchor": "world_casting:sub_level.max_bounds",
+      "input": "fragment",
+      "output": "vec",
+      "text": "world_casting.page.world_casting.sub_level.max_bounds"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:sub_level.project_position",
+      "anchor": "world_casting:sub_level.project_position",
+      "input": "vec, fragment | null",
+      "output": "vec",
+      "text": "world_casting.page.world_casting.sub_level.project_position"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:sub_level.get_radius",
+      "anchor": "world_casting:sub_level.get_radius",
+      "input": "vec, num",
+      "output": "[fragment]",
+      "text": "world_casting.page.world_casting.sub_level.get_radius"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:sub_level.mass",
+      "anchor": "world_casting:sub_level.mass",
+      "input": "fragment",
+      "output": "num",
+      "text": "world_casting.page.world_casting.sub_level.mass"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:sub_level.gravity",
+      "anchor": "world_casting:sub_level.gravity",
+      "input": "vec",
+      "output": "vec",
+      "text": "world_casting.page.world_casting.sub_level.gravity"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:sub_level.velocity",
+      "anchor": "world_casting:sub_level.velocity",
+      "input": "vec",
+      "output": "vec",
+      "text": "world_casting.page.world_casting.sub_level.velocity"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "world_casting:sub_level.air_pressure",
+      "anchor": "world_casting:sub_level.air_pressure",
+      "input": "vec",
+      "output": "num",
+      "text": "world_casting.page.world_casting.sub_level.air_pressure"
+    }
+  ]
+}

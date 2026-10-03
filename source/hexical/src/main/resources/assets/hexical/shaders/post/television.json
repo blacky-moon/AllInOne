@@ -1,0 +1,17 @@
+{
+	"targets": [
+		"swap"
+	],
+	"passes": [
+		{
+			"name": "deconverge",
+			"intarget": "minecraft:main",
+			"outtarget": "swap"
+		},
+		{
+			"name": "television",
+			"intarget": "swap",
+			"outtarget": "minecraft:main"
+		}
+	]
+}

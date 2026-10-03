@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "oneironaut:media_laboratory",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 40,
+    "separation": 24,
+    "salt": 1942106472
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "hexcasting.action.oneironaut:swapspace",
+  "category": "hexcasting:patterns/great_spells",
+  "icon": "minecraft:ender_chest",
+  "sortnum": 0,
+  "advancement": "hexcasting:root",
+  "read_by_default": false,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "oneironaut:swapspace",
+      "anchor": "oneironaut:swapspace",
+      "input": "[vec, vec], [vec, vec], Imprint",
+      "output": "",
+      "text": "oneironaut.page.spaceswap.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.spaceswap.2"
+    },
+    {
+      "type": "patchouli:text",
+      "advancement": "oneironaut:enter_noosphere",
+      "text": "oneironaut.page.spaceswap.3"
+    }
+  ]
+}

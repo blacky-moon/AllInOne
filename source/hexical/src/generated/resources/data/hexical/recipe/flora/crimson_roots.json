@@ -1,0 +1,10 @@
+{
+  "type": "hexical:flora",
+  "cost": 6000,
+  "input": {
+    "item": "minecraft:crimson_roots"
+  },
+  "state": {
+    "Name": "minecraft:crimson_roots"
+  }
+}

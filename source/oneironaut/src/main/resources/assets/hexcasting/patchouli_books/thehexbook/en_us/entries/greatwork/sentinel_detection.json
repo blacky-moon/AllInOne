@@ -1,0 +1,40 @@
+{
+  "name": "oneironaut.entry.sentinel_detection",
+  "category": "hexcasting:greatwork",
+  "icon": "minecraft:magenta_candle",
+  "sortnum": 5,
+  "advancement": "oneironaut:enter_noosphere",
+  "entry_color": "54398a",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.sentinel_detection.1"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "oneironaut:sentinel_sensor",
+      "text": "oneironaut.page.sentinel_detection.2"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.sentinel_detection.3"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "oneironaut:sentinel_trap",
+      "text": "oneironaut.page.sentinel_detection.4"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "oneironaut:readsentinel",
+      "anchor": "oneironaut:readsentinel",
+      "input": "vec, player",
+      "output": "num | NULL",
+      "text": "oneironaut.page.sentinel_detection.5"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.sentinel_detection.6"
+    }
+  ]
+}

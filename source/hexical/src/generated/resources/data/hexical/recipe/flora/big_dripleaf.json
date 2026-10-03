@@ -1,0 +1,15 @@
+{
+  "type": "hexical:flora",
+  "cost": 7000,
+  "input": {
+    "item": "minecraft:big_dripleaf"
+  },
+  "state": {
+    "Name": "minecraft:big_dripleaf",
+    "Properties": {
+      "facing": "north",
+      "tilt": "none",
+      "waterlogged": "false"
+    }
+  }
+}

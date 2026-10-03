@@ -1,0 +1,7 @@
+    {
+      "variants": {
+        "powered=false": { "model": "oneironaut:block/slipwaysuppressor_off" },
+        "powered=true": { "model": "oneironaut:block/slipwaysuppressor_on" }
+      }
+    }
+

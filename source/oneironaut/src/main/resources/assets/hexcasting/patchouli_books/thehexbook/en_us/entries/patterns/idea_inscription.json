@@ -1,0 +1,51 @@
+{
+  "name": "oneironaut.entry.idea_inscription",
+  "category": "hexcasting:patterns",
+  "icon": "hexcasting:scroll_medium",
+  "sortnum": 14,
+  "advancement": "oneironaut:enter_noosphere",
+  "entry_color": "54398a",
+  "read_by_default": false,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.idea_inscription.1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "oneironaut.page.idea_inscription.2"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "oneironaut:writeidea",
+      "anchor": "oneironaut:writeidea",
+      "input": "key, any",
+      "output": "",
+      "text": "oneironaut.page.idea_inscription.3"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "oneironaut:readidea",
+      "anchor": "oneironaut:readidea",
+      "input": "key",
+      "output": "any",
+      "text": "oneironaut.page.idea_inscription.4"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "oneironaut:readideatime",
+      "anchor": "oneironaut:readideatime",
+      "input": "key",
+      "output": "number",
+      "text": "oneironaut.page.idea_inscription.5"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "oneironaut:readideawriter",
+      "anchor": "oneironaut:readideawriter",
+      "input": "key, player",
+      "output": "bool",
+      "text": "oneironaut.page.idea_inscription.6"
+    }
+  ]
+}

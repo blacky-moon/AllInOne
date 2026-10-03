@@ -1,0 +1,153 @@
+package dev.tizu.hexcessible.smartsig;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.jetbrains.annotations.Nullable;
+
+import at.petrak.hexcasting.api.casting.math.HexAngle;
+import at.petrak.hexcasting.api.casting.math.HexDir;
+import dev.tizu.hexcessible.entries.BookEntries;
+import dev.tizu.hexcessible.entries.PatternEntries;
+import net.minecraft.network.chat.Component;
+
+public class Bookkeeper implements SmartSig {
+
+    @Override
+    public @Nullable List<PatternEntries.Entry> get(String query) {
+        List<Boolean> target = new ArrayList<>();
+        for (var i = 0; i < query.length(); i++) {
+            var ch = query.charAt(i);
+            if (ch == 'v' || ch == 'V')
+                target.add(true);
+            else if (ch == '-' || ch == '_')
+                target.add(false);
+            else
+                return null;
+        }
+        return List.of(getEntry(target));
+    }
+
+    @Override
+    public @Nullable PatternEntries.Entry get(List<HexAngle> sig) {
+        if (sig.isEmpty())
+            return null;
+
+        sig = new ArrayList<>(sig);
+        List<Boolean> target = new ArrayList<>();
+
+        var lastWasDrop = false;
+        if (sig.get(0).equals(HexAngle.LEFT_BACK)) {
+            target.add(true);
+            sig.remove(0);
+            lastWasDrop = true;
+        } else {
+            target.add(false);
+        }
+
+        var i = 0;
+        while (i < sig.size()) {
+            var dir = sig.get(i);
+            var next = i + 1 < sig.size() ? sig.get(i + 1) : sig.get(i);
+            if (dir.equals(lastWasDrop ? HexAngle.RIGHT : HexAngle.FORWARD)) {
+                target.add(false);
+                lastWasDrop = false;
+                i += 1;
+            } else if (dir.equals(lastWasDrop ? HexAngle.RIGHT_BACK : HexAngle.RIGHT)
+                    && next.equals(HexAngle.LEFT_BACK)) {
+                target.add(true);
+                lastWasDrop = true;
+                i += 2;
+            } else
+                return null;
+        }
+        return getEntry(target);
+    }
+
+    private static PatternEntries.Entry getEntry(List<Boolean> target) {
+        var angles = new ArrayList<HexAngle>();
+        var in = new StringBuilder();
+        var out = new StringBuilder();
+
+        for (var i = 0; i < target.size(); i++) {
+            var lastWasDrop = i > 0 && target.get(i - 1);
+
+            if (Boolean.TRUE.equals(target.get(i))) {
+                angles.add(angDrop(lastWasDrop));
+                angles.add(HexAngle.LEFT_BACK);
+
+                if (!in.isEmpty())
+                    in.append(", ");
+                in.append("_");
+            } else {
+                angles.add(angKeep(lastWasDrop));
+
+                if (!in.isEmpty())
+                    in.append(", ");
+                if (!out.isEmpty())
+                    out.append(", ");
+                in.append(i + 1);
+                out.append(i + 1);
+            }
+        }
+
+        angles.remove(0);
+
+        var representation = new StringBuilder();
+        for (var i = 0; i < target.size(); i++)
+            representation.append(Boolean.TRUE.equals(target.get(i)) ? "v" : "-");
+
+        var i18nkey = Component.translatable("hexcasting.special.hexcasting:mask",
+                representation).getString();
+        var doc = new BookEntries.Entry("hexcessible:bookkeeper", null,
+                getDesc(target), in.toString(), out.toString(), 0);
+        return new PatternEntries.Entry("hexcessible:bookkeeper/" + representation,
+                i18nkey, () -> false, HexDir.EAST, List.of(angles), List.of(doc), 0);
+    }
+
+    private static String getDesc(List<Boolean> target) {
+        var firstIsDrop = target.get(0);
+        var counts = new ArrayList<Integer>();
+
+        var currentIsDrop = !firstIsDrop.booleanValue();
+        for (var i = 0; i < target.size(); i++)
+            if (currentIsDrop != target.get(i).booleanValue()) {
+                counts.add(1);
+                currentIsDrop = !currentIsDrop;
+            } else {
+                var j = counts.size() - 1;
+                counts.set(j, counts.get(j) + 1);
+            }
+
+        var str = new StringBuilder();
+        str.append(Component.translatable("hexcessible.smartsig.bookkeeper.prefix")
+                .getString());
+
+        for (var i = 0; i < counts.size(); i++) {
+            if (i != 0)
+                str.append(Component.translatable("hexcessible.smartsig.bookkeeper.join")
+                        .getString());
+
+            currentIsDrop = i % 2 == 0 ? firstIsDrop : !firstIsDrop;
+            var count = counts.get(i);
+            var key = currentIsDrop ? "hexcessible.smartsig.bookkeeper.drop"
+                    : "hexcessible.smartsig.bookkeeper.keep";
+            if (count == 1)
+                key += "1";
+            str.append(Component.translatable(key, count).getString());
+        }
+
+        str.append(Component.translatable("hexcessible.smartsig.bookkeeper.suffix")
+                .getString());
+
+        return str.toString();
+    }
+
+    private static HexAngle angDrop(boolean lastWasDrop) {
+        return lastWasDrop ? HexAngle.RIGHT_BACK : HexAngle.RIGHT;
+    }
+
+    private static HexAngle angKeep(boolean lastWasDrop) {
+        return lastWasDrop ? HexAngle.RIGHT : HexAngle.FORWARD;
+    }
+}
